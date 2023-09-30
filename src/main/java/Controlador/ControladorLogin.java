@@ -37,7 +37,7 @@ public class ControladorLogin  {
                 }
             }
 
-            // Si no se encuentra una coincidencia, el inicio de sesión falla
+            
             escritor.close();
             return false;
         } catch (IOException e) {

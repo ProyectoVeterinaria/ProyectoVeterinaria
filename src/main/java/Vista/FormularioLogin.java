@@ -10,7 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+import Modelo.Login;
 /**
  *
  * @author Mariana M
@@ -196,11 +196,10 @@ public class FormularioLogin extends javax.swing.JFrame {
     
     /////////---------BOTÓN INGRESAR--------/////
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-    String usuario = txtUsuario.getText();
-    String contraseña = new String(pwdcontraseña.getPassword());
     String tipoUsuario = (String) cbxtipousuario.getSelectedItem(); //tomar valor como string
-
-    if (ControladorLogin.login(usuario, contraseña, tipoUsuario)) {
+    String contraseña = new String(pwdcontraseña.getPassword());
+    Login usuario=new Login(txtUsuario.getText(),contraseña,tipoUsuario);
+    if (ControladorLogin.login(usuario.getUsuario(),usuario.getContraseña(),usuario.getTipo())) {
         
         JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso","Validacion",3);
         // Redirigir aL principal

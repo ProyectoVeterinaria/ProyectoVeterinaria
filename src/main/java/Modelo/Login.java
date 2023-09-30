@@ -19,7 +19,7 @@ public class Login {
         this.tipo = tipo;
     }
 
-    // Getters y Setters para usarlos en controlador Login
+    // Getters y Setters para usarlos en el formulario
     
     public String getUsuario() {
         return usuario;
