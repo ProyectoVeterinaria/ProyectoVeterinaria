@@ -38,18 +38,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="137" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,12 +102,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="47" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtUsuario" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="lbUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="pwdcontraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pwdcontraseña" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="lbContraseña1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -190,7 +195,7 @@
               <Font name="Segoe UI" size="13" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\Talleres de practica\ProyectoVeterinaria\src\main\java\Vista\imagenes\entrar.png"/>
+              <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\entrar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
             <Property name="toolTipText" type="java.lang.String" value="Inicia sesi&#xf3;n"/>
@@ -205,7 +210,7 @@
               <Font name="Segoe UI" size="13" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/rechazar.png"/>
+              <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\rechazar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
             <Property name="toolTipText" type="java.lang.String" value="Cierra la aplicaci&#xf3;n"/>
@@ -216,5 +221,12 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\user.png"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

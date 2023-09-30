@@ -4,6 +4,13 @@
  */
 package Vista;
 
+import Controlador.ControladorLogin;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Mariana M
@@ -38,6 +45,7 @@ public class FormularioLogin extends javax.swing.JFrame {
         lbContraseña1 = new javax.swing.JLabel();
         btningresar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -75,7 +83,7 @@ public class FormularioLogin extends javax.swing.JFrame {
         lbContraseña1.setText("Contraseña");
 
         btningresar.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btningresar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\Talleres de practica\\ProyectoVeterinaria\\src\\main\\java\\Vista\\imagenes\\entrar.png")); // NOI18N
+        btningresar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\entrar.png")); // NOI18N
         btningresar.setText("Ingresar");
         btningresar.setToolTipText("Inicia sesión");
         btningresar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +93,7 @@ public class FormularioLogin extends javax.swing.JFrame {
         });
 
         btnsalir.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/rechazar.png"))); // NOI18N
+        btnsalir.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\rechazar.png")); // NOI18N
         btnsalir.setText("Salir");
         btnsalir.setToolTipText("Cierra la aplicación");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -123,11 +131,11 @@ public class FormularioLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbUsuario))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwdcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbContraseña1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,21 +153,27 @@ public class FormularioLogin extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\user.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,17 +187,30 @@ public class FormularioLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdcontraseñaActionPerformed
 
+    /////////---------BOTÓN SALIR--------/////
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        // TODO add your handling code here:
+         System.exit(0);//cierra el proyecto
     }//GEN-LAST:event_btnsalirActionPerformed
 
+    
+    
+    /////////---------BOTÓN INGRESAR--------/////
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        // TODO add your handling code here:
+    String usuario = txtUsuario.getText();
+    String contraseña = new String(pwdcontraseña.getPassword());
+    String tipoUsuario = (String) cbxtipousuario.getSelectedItem(); //tomar valor como string
+
+    if (ControladorLogin.login(usuario, contraseña, tipoUsuario)) {
+        
+        JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso","Validacion",3);
+        // Redirigir aL principal
+        
+    } else {
+        
+        JOptionPane.showMessageDialog(this, "Inicio de sesión fallido. Verifica tus credenciales.","Vlidacion",0);
+    }
     }//GEN-LAST:event_btningresarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -228,6 +255,7 @@ public class FormularioLogin extends javax.swing.JFrame {
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> cbxtipousuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
@@ -238,4 +266,7 @@ public class FormularioLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdcontraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
