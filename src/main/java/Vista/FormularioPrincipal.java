@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author Mariana M
@@ -35,11 +38,13 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         editarcliente = new javax.swing.JMenuItem();
         mnu_mascota = new javax.swing.JMenu();
         mnu_vetrinario = new javax.swing.JMenu();
+        registrarveterinario = new javax.swing.JMenuItem();
         mnu_vendedor = new javax.swing.JMenu();
         mnu_historiaclinica = new javax.swing.JMenu();
         mnu_factura = new javax.swing.JMenu();
         mnu_acercade = new javax.swing.JMenu();
         mnu_salir1 = new javax.swing.JMenu();
+        cerrarsesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formulario Principal");
@@ -89,6 +94,15 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         mnu_vetrinario.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconveterinario.png")); // NOI18N
         mnu_vetrinario.setText("Veterinarios");
+
+        registrarveterinario.setText("Registrar Veterinario");
+        registrarveterinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarveterinarioActionPerformed(evt);
+            }
+        });
+        mnu_vetrinario.add(registrarveterinario);
+
         jMenuBar2.add(mnu_vetrinario);
 
         mnu_vendedor.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconvendedor.png")); // NOI18N
@@ -109,6 +123,15 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         mnu_salir1.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\salida.png")); // NOI18N
         mnu_salir1.setText("Salir");
+
+        cerrarsesion.setText("Cerrar sesión");
+        cerrarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarsesionActionPerformed(evt);
+            }
+        });
+        mnu_salir1.add(cerrarsesion);
+
         jMenuBar2.add(mnu_salir1);
 
         setJMenuBar(jMenuBar2);
@@ -134,6 +157,15 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private void editarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editarclienteActionPerformed
+
+    private void registrarveterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarveterinarioActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_registrarveterinarioActionPerformed
+
+    private void cerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarsesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cerrarsesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +213,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem cerrarsesion;
     private javax.swing.JMenuItem editarcliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -194,6 +227,94 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_salir1;
     private javax.swing.JMenu mnu_vendedor;
     private javax.swing.JMenu mnu_vetrinario;
+    private javax.swing.JMenuItem registrarveterinario;
     private javax.swing.JMenuItem registrocliente;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    public JMenuItem getEditarcliente() {
+        return editarcliente;
+    }
+
+    public void setEditarcliente(JMenuItem editarcliente) {
+        this.editarcliente = editarcliente;
+    }
+
+    public JMenu getMnu_acercade() {
+        return mnu_acercade;
+    }
+
+    public JMenu getMnu_cliente() {
+        return mnu_cliente;
+    }
+
+    public void setMnu_cliente(JMenu mnu_cliente) {
+        this.mnu_cliente = mnu_cliente;
+    }
+
+    public JMenu getMnu_factura() {
+        return mnu_factura;
+    }
+
+    public void setMnu_factura(JMenu mnu_factura) {
+        this.mnu_factura = mnu_factura;
+    }
+
+    public void setMnu_acercade(JMenu mnu_acercade) {
+        this.mnu_acercade = mnu_acercade;
+    }
+
+    public void setMnu_historiaclinica(JMenu mnu_historiaclinica) {
+        this.mnu_historiaclinica = mnu_historiaclinica;
+    }
+
+    public JMenu getMnu_mascota() {
+        return mnu_mascota;
+    }
+
+    public void setMnu_mascota(JMenu mnu_mascota) {
+        this.mnu_mascota = mnu_mascota;
+    }
+
+    public JMenu getMnu_salir1() {
+        return mnu_salir1;
+    }
+
+    public void setMnu_salir1(JMenu mnu_salir1) {
+        this.mnu_salir1 = mnu_salir1;
+    }
+
+    public JMenu getMnu_vendedor() {
+        return mnu_vendedor;
+    }
+
+    public void setMnu_vendedor(JMenu mnu_vendedor) {
+        this.mnu_vendedor = mnu_vendedor;
+    }
+
+    public JMenu getMnu_vetrinario() {
+        return mnu_vetrinario;
+    }
+
+    public void setMnu_vetrinario(JMenu mnu_vetrinario) {
+        this.mnu_vetrinario = mnu_vetrinario;
+    }
+
+    public JMenuItem getRegistrocliente() {
+        return registrocliente;
+    }
+
+    public void setRegistrocliente(JMenuItem registrocliente) {
+        this.registrocliente = registrocliente;
+    }
+
+    public JMenuItem getRegistrarveterinario() {
+        return registrarveterinario;
+    }
+
+    public JMenuItem getCerrarsesion() {
+        return cerrarsesion;
+    }
+
 }

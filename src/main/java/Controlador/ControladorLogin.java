@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Login;
+import Modelo.Veterinario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -39,8 +40,10 @@ public class ControladorLogin implements ActionListener {
                 {
                      JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso","Validacion",3);
                      vista.setVisible(false);
-                     FormularioPrincipal principal=new FormularioPrincipal();
+                     FormularioPrincipal principal=new FormularioPrincipal();   
+                     FormularioPrincipalControlador formprincipal= new FormularioPrincipalControlador(principal);
                      principal.setVisible(true);
+                     
                 }else
                 {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.","Vlidacion",0);
