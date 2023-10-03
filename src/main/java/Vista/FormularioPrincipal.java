@@ -27,28 +27,89 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        mnu_cliente = new javax.swing.JMenu();
+        registrocliente = new javax.swing.JMenuItem();
+        editarcliente = new javax.swing.JMenuItem();
+        mnu_mascota = new javax.swing.JMenu();
+        mnu_vetrinario = new javax.swing.JMenu();
+        mnu_vendedor = new javax.swing.JMenu();
+        mnu_historiaclinica = new javax.swing.JMenu();
+        mnu_factura = new javax.swing.JMenu();
+        mnu_acercade = new javax.swing.JMenu();
+        mnu_salir1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Formulario Principal");
+
+        jPanel1.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
-        jMenu7.setText("File");
-        jMenuBar2.add(jMenu7);
+        jButton1.setText("jButton1");
 
-        jMenu8.setText("Edit");
-        jMenuBar2.add(jMenu8);
+        jButton2.setText("jButton2");
+
+        mnu_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        mnu_cliente.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconcliente.png")); // NOI18N
+        mnu_cliente.setText("Clientes");
+
+        registrocliente.setText("Registrar nuevo cliente");
+        registrocliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registroclienteActionPerformed(evt);
+            }
+        });
+        mnu_cliente.add(registrocliente);
+
+        editarcliente.setText("Editar");
+        editarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarclienteActionPerformed(evt);
+            }
+        });
+        mnu_cliente.add(editarcliente);
+
+        jMenuBar2.add(mnu_cliente);
+
+        mnu_mascota.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconMascotas.png")); // NOI18N
+        mnu_mascota.setText("Mascotas");
+        jMenuBar2.add(mnu_mascota);
+
+        mnu_vetrinario.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconveterinario.png")); // NOI18N
+        mnu_vetrinario.setText("Veterinarios");
+        jMenuBar2.add(mnu_vetrinario);
+
+        mnu_vendedor.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconvendedor.png")); // NOI18N
+        mnu_vendedor.setText("Vendedores");
+        jMenuBar2.add(mnu_vendedor);
+
+        mnu_historiaclinica.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconhistoriaclinica.png")); // NOI18N
+        mnu_historiaclinica.setText("Historias Clínicas");
+        jMenuBar2.add(mnu_historiaclinica);
+
+        mnu_factura.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconfactura.png")); // NOI18N
+        mnu_factura.setText("Facturas");
+        jMenuBar2.add(mnu_factura);
+
+        mnu_acercade.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconacerca-de.png")); // NOI18N
+        mnu_acercade.setText("A cerca de nosotros");
+        jMenuBar2.add(mnu_acercade);
+
+        mnu_salir1.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\salida.png")); // NOI18N
+        mnu_salir1.setText("Salir");
+        jMenuBar2.add(mnu_salir1);
 
         setJMenuBar(jMenuBar2);
 
@@ -65,6 +126,14 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registroclienteActionPerformed
+
+    private void editarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editarclienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,9 +181,19 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuItem editarcliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu mnu_acercade;
+    private javax.swing.JMenu mnu_cliente;
+    private javax.swing.JMenu mnu_factura;
+    private javax.swing.JMenu mnu_historiaclinica;
+    private javax.swing.JMenu mnu_mascota;
+    private javax.swing.JMenu mnu_salir1;
+    private javax.swing.JMenu mnu_vendedor;
+    private javax.swing.JMenu mnu_vetrinario;
+    private javax.swing.JMenuItem registrocliente;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,7 @@
 Vista\RegistroHistoriaClinicaFrame$1.class
+Modelo\Login.class
 Vista\RegistroFacturaFrame.class
+Vista\FormularioPrincipal$2.class
 Vista\RegistroHistoriaClinicaFrame.class
 Controlador\Principal.class
 Modelo\HistoriaClinica.class
@@ -12,6 +14,7 @@ Vista\FormularioLogin$5.class
 Vista\RegistroVeterinarioFrame.class
 Modelo\Persona.class
 Controlador\RegistroMascota.class
+Controlador\ControladorLogin.class
 Controlador\RegistroDueñoMascota.class
 Vista\RegistroVendedorFrame.class
 Controlador\RegistroVendedor.class
@@ -28,6 +31,7 @@ Modelo\Mascota.class
 Vista\FormularioPrincipal.class
 Vista\FormularioLogin.class
 Modelo\Factura.class
+Vista\FormularioPrincipal$3.class
 Vista\FormularioLogin$4.class
 Vista\RegistroMascotaFrame$1.class
 Vista\FormularioLogin$1.class

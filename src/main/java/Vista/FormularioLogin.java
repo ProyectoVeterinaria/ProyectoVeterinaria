@@ -180,34 +180,23 @@ public class FormularioLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxtipousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxtipousuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxtipousuarioActionPerformed
 
     private void pwdcontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdcontraseñaActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_pwdcontraseñaActionPerformed
 
     /////////---------BOTÓN SALIR--------/////
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-         System.exit(0);//cierra el proyecto
+         
     }//GEN-LAST:event_btnsalirActionPerformed
 
     
     
     /////////---------BOTÓN INGRESAR--------/////
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-    String tipoUsuario = (String) cbxtipousuario.getSelectedItem(); //tomar valor como string
-    String contraseña = new String(pwdcontraseña.getPassword());
-    Login usuario=new Login(txtUsuario.getText(),contraseña,tipoUsuario);
-    if (ControladorLogin.login(usuario.getUsuario(),usuario.getContraseña(),usuario.getTipo())) {
-        
-        JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso","Validacion",3);
-        // Redirigir aL principal
-        
-    } else {
-        
-        JOptionPane.showMessageDialog(this, "Inicio de sesión fallido. Verifica tus credenciales.","Vlidacion",0);
-    }
+
     }//GEN-LAST:event_btningresarActionPerformed
 
     public static void main(String args[]) {
@@ -265,6 +254,48 @@ public class FormularioLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdcontraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtningresar() {
+        return btningresar;
+    }
+
+    public void setBtningresar(JButton btningresar) {
+        this.btningresar = btningresar;
+    }
+
+    public JButton getBtnsalir() {
+        return btnsalir;
+    }
+
+    public void setBtnsalir(JButton btnsalir) {
+        this.btnsalir = btnsalir;
+    }
+
+    public String getTipousuario() {
+        String tipoUsuario = (String) cbxtipousuario.getSelectedItem();
+        return tipoUsuario;
+    }
+
+    public void setTipousuario(JComboBox<String> cbxtipousuario) {
+        this.cbxtipousuario = cbxtipousuario;
+    }
+
+    public String getContraseña() {
+        String contraseña = new String(pwdcontraseña.getPassword());
+        return contraseña;
+    }
+
+    public void setContraseña(JPasswordField pwdcontraseña) {
+        this.pwdcontraseña = pwdcontraseña;
+    }
+
+    public String getNombreUsuario() {
+        return txtUsuario.getText();
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
 
 
 

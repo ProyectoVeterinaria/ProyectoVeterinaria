@@ -4,52 +4,68 @@
  */
 package Controlador;
 
+import Modelo.Login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import Vista.FormularioLogin;
+import Vista.FormularioPrincipal;
+import javax.swing.JOptionPane;
 
+public class ControladorLogin implements ActionListener {
 
-public class ControladorLogin  {
-     private static final String administradores = "administradores.txt";
+    private FormularioLogin vista;
+    private Login modelo;
 
-    public static boolean login(String usuario, String contraseña, String tipoUsuario) {
-        try {
-            FileReader lector = new FileReader(administradores);
-            BufferedReader escritor = new BufferedReader(lector);
+    public ControladorLogin(FormularioLogin vista, Login modelo) {
+        this.vista = vista;
+        this.modelo = modelo;
+        this.vista.getBtningresar().addActionListener(this);
+        this.vista.getBtnsalir().addActionListener(this);
 
-            String linea;
-            while ((linea = escritor.readLine()) != null) { // Mientras haya líneas
-                String[] campos = linea.split(";|,"); // toma cada dato por separado por ";" o ","
+    }
 
-                if (campos.length == 3) { // Ahora esperamos tres campos: usuario, contraseña y tipo
-                    String usuarioAdmin = campos[0];
-                    String contraseñaAdmin = campos[1];
-                    String tipoAdmin = campos[2];
-
-                    if (usuario.equals(usuarioAdmin) && contraseña.equals(contraseñaAdmin) && tipoUsuario.equals(tipoAdmin)) {
-                        // Coinciden los datos, el inicio de sesión es exitoso
-                        escritor.close();
-                        return true;
-                    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vista.getBtningresar())
+        {
+            // Verificamos que se llenen todos los campos
+            if (validarDatos())
+            {
+                modelo = new Login(vista.getNombreUsuario(), vista.getContraseña(), vista.getTipousuario());
+                if (modelo.validarIngreso())
+                {
+                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso","Validacion",3);
+                     vista.setVisible(false);
+                     FormularioPrincipal principal=new FormularioPrincipal();
+                     principal.setVisible(true);
+                }else
+                {
+                    JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.","Vlidacion",0);
                 }
-            }
 
+            }
             
-            escritor.close();
-            return false;
-        } catch (IOException e) {
-            System.err.println("Error: No se pudo leer el archivo 'administradores.txt'.");
+
+        }else
+            if (e.getSource() == vista.getBtnsalir())
+            {
+                System.exit(0);//cierra el proyecto
+            } 
+
+    }
+
+    private boolean validarDatos() {
+
+        if (vista.getNombreUsuario().isEmpty() || vista.getContraseña().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.", "Vlidacion", 0);
             return false;
         }
+
+        return true;
     }
+
 }
-
-
-
-  
-
-    
-
