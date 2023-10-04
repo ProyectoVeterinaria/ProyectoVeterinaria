@@ -64,7 +64,7 @@ public class ControladorLogin implements ActionListener {
 
         if (vista.getNombreUsuario().isEmpty() || vista.getContraseña().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.", "Vlidacion", 0);
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.", "Validacion", 2);
             return false;
         }
 
