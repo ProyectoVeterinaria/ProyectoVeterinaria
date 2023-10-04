@@ -24,28 +24,40 @@ public class RegistroVeterinarioContolador implements ActionListener {
         this.veterinario = veterinario;
         this.vista.getRegistrar().addActionListener(this);
         this.vista.getCancelar().addActionListener(this);
+        this.vista.getbtnEliminar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         if (e.getSource() == vista.getRegistrar())
+        if (e.getSource() == vista.getRegistrar())
         {
             if (validarDatos())
             {
-                veterinario = new Veterinario(vista.getnoLicencia(), vista.getEspecializacion(), vista.getNombre(), " ", vista.getCedula());
+                veterinario = new Veterinario(vista.getnoLicencia(), vista.getEspecializacion(), vista.getNombre(), vista.getEdad(), vista.getCedula());
                 if (veterinario.validarRepetidos())
                 {
                     veterinario.escibirRegistro();
                     vista.setVisible(false);
+                    vista.setVisible(true);
+                    // Borrar datos de los campos después de ingresar
+                    vista.setnoLicencia(null);
+                    vista.setEspecializacion(null);
+                    vista.setNombre(null);
+                    vista.setEdad(null);
+                    vista.setCedula(null);
                 }
             }
-        } else
-        {
-            if (e.getSource() == vista.getCancelar())
-            {
-                vista.setVisible(false);
-            }
         }
+
+        if (e.getSource() == vista.getCancelar())
+        {
+            vista.setVisible(false);
+        }
+        if (e.getSource() == vista.getbtnEliminar())
+        {
+            veterinario.eliminarRegistro();
+        }
+
     }
 
     private boolean validarDatos() {

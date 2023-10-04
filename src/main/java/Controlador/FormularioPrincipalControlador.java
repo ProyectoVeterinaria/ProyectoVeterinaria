@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Veterinario;
 import Vista.FormularioPrincipal;
 import Vista.RegistroVeterinario;
+import Vista.VistaAcercade;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +24,7 @@ public class FormularioPrincipalControlador implements ActionListener {
         this.vista.getRegistrarveterinario().addActionListener(this);
         this.vista.getRegistrocliente().addActionListener(this);
         this.vista.getCerrarsesion().addActionListener(this);
+        this.vista.getIntegrantes().addActionListener(this);
 
     }
 
@@ -39,6 +41,11 @@ public class FormularioPrincipalControlador implements ActionListener {
         if (e.getSource() == vista.getCerrarsesion())
         {
             System.exit(0);//cierra el proyecto
+        }
+        if (e.getSource() == vista.getIntegrantes())
+        {
+            VistaAcercade integrantes = new VistaAcercade(vista, true);
+            integrantes.setVisible(true);
         }
 
     }
