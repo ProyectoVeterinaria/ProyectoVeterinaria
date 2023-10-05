@@ -37,14 +37,13 @@ public class RegistroVeterinarioContolador implements ActionListener {
                 if (veterinario.validarRepetidos())
                 {
                     veterinario.escibirRegistro();
-                    vista.setVisible(false);
-                    vista.setVisible(true);
-                    // Borrar datos de los campos después de ingresar
-                    vista.setnoLicencia(null);
-                    vista.setEspecializacion(null);
-                    vista.setNombre(null);
-                    vista.setEdad(null);
-                    vista.setCedula(null);
+                    
+                    // Borrar datos de los campos después de ingresar--- no está funcionando
+//                    vista.setnoLicencia(null);
+//                    vista.setEspecializacion(null);
+//                    vista.setNombre(null);
+//                    vista.setEdad(null);
+//                    vista.setCedula(null);
                 }
             }
         }

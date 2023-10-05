@@ -1,2 +1,0 @@
-Antonio Ruiz Gonzalez;30;1000324;1124133;Veterinario;Cirugía Veterinaria
-Hola;25;123r4;2324;Veterinario;Oftalmología Veterinaria;

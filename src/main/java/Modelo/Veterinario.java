@@ -13,15 +13,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Mariana M
- */
+
 public class Veterinario extends Persona {
 
     private String noLicencia;
     private String especializacion;
-    private static final String archivo = "veterinarios.txt";
+    private static final String archivo = "src/main/java/Modelo/veterinarios.txt";
 
     public Veterinario(String noLicencia, String especializacion, String nombre, String edad, String identificacion) {
         super(nombre, edad, identificacion, "Veterinario");
@@ -125,7 +122,6 @@ public class Veterinario extends Persona {
                     return false;
                 }
             }
-
             lector.close(); // Cierra el archivo cuando hayas terminado
         } catch (IOException e)
         {

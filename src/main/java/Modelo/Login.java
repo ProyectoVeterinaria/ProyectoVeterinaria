@@ -13,7 +13,7 @@ import java.io.IOException;
  * @author Mariana M
  */
 public class Login {
-    private static final String administradores = "administradores.txt";
+    private static final String administradores = "src/main/java/Modelo/administradores.txt";
 
     private String usuario;
     private String contraseña;
