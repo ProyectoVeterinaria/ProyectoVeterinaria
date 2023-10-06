@@ -27,28 +27,28 @@ public class VistaAcercade extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlbSara = new javax.swing.JLabel();
+        jlbAlejandro = new javax.swing.JLabel();
+        jlbMariana = new javax.swing.JLabel();
+        jlbversion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Acerca de nosotros");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon1.png")); // NOI18N
-        jLabel1.setText("Sara Munera Ocampo");
+        jlbSara.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbSara.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon1.png")); // NOI18N
+        jlbSara.setText("Sara Munera Ocampo");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon3.png")); // NOI18N
-        jLabel2.setText("Alejandro Correa Arias");
+        jlbAlejandro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbAlejandro.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon3.png")); // NOI18N
+        jlbAlejandro.setText("Alejandro Correa Arias");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon2.png")); // NOI18N
-        jLabel3.setText("Mariana Montoya Sepúlveda");
+        jlbMariana.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbMariana.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\Icon2.png")); // NOI18N
+        jlbMariana.setText("Mariana Montoya Sepúlveda");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel4.setText("Versión 0001");
+        jlbversion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jlbversion.setText("Versión 1.0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,26 +57,26 @@ public class VistaAcercade extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                    .addComponent(jlbMariana)
+                    .addComponent(jlbAlejandro)
+                    .addComponent(jlbSara))
                 .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(jlbversion)
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel3)
+                .addComponent(jlbMariana)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(jlbSara)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jlbAlejandro)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(jlbversion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,9 +133,9 @@ public class VistaAcercade extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jlbAlejandro;
+    private javax.swing.JLabel jlbMariana;
+    private javax.swing.JLabel jlbSara;
+    private javax.swing.JLabel jlbversion;
     // End of variables declaration//GEN-END:variables
 }

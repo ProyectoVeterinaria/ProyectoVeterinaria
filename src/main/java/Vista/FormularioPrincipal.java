@@ -36,7 +36,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLwelcome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
+        barraMenu = new javax.swing.JMenuBar();
         mnu_cliente = new javax.swing.JMenu();
         registrocliente = new javax.swing.JMenuItem();
         editarcliente = new javax.swing.JMenuItem();
@@ -93,11 +93,11 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         });
         mnu_cliente.add(editarcliente);
 
-        jMenuBar2.add(mnu_cliente);
+        barraMenu.add(mnu_cliente);
 
         mnu_mascota.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconMascotas.png")); // NOI18N
         mnu_mascota.setText("Mascotas");
-        jMenuBar2.add(mnu_mascota);
+        barraMenu.add(mnu_mascota);
 
         mnu_vetrinario.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconveterinario.png")); // NOI18N
         mnu_vetrinario.setText("Veterinarios");
@@ -110,19 +110,19 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         });
         mnu_vetrinario.add(registrarveterinario);
 
-        jMenuBar2.add(mnu_vetrinario);
+        barraMenu.add(mnu_vetrinario);
 
         mnu_vendedor.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconvendedor.png")); // NOI18N
         mnu_vendedor.setText("Vendedores");
-        jMenuBar2.add(mnu_vendedor);
+        barraMenu.add(mnu_vendedor);
 
         mnu_historiaclinica.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconhistoriaclinica.png")); // NOI18N
         mnu_historiaclinica.setText("Historias Clínicas");
-        jMenuBar2.add(mnu_historiaclinica);
+        barraMenu.add(mnu_historiaclinica);
 
         mnu_factura.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconfactura.png")); // NOI18N
         mnu_factura.setText("Facturas");
-        jMenuBar2.add(mnu_factura);
+        barraMenu.add(mnu_factura);
 
         mnu_acercade.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconacerca-de.png")); // NOI18N
         mnu_acercade.setText("A cerca de nosotros");
@@ -130,7 +130,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         integrantes.setText("Integrantes ");
         mnu_acercade.add(integrantes);
 
-        jMenuBar2.add(mnu_acercade);
+        barraMenu.add(mnu_acercade);
 
         mnu_salir1.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\salida.png")); // NOI18N
         mnu_salir1.setText("Salir");
@@ -143,9 +143,9 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         });
         mnu_salir1.add(cerrarsesion);
 
-        jMenuBar2.add(mnu_salir1);
+        barraMenu.add(mnu_salir1);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,6 +241,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem cerrarsesion;
     private javax.swing.JMenuItem editarcliente;
     private javax.swing.JMenuItem integrantes;
@@ -250,7 +251,6 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLwelcome;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JMenu mnu_acercade;
     private javax.swing.JMenu mnu_cliente;

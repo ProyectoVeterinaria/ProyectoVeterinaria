@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 
 
 public class Veterinario extends Persona {
-
     private String noLicencia;
     private String especializacion;
     private static final String archivo = "src/main/java/Modelo/veterinarios.txt";
@@ -106,7 +105,7 @@ public class Veterinario extends Persona {
     public boolean validarRepetidos() {
         try
         {
-            FileReader archivo = new FileReader("veterinarios.txt");
+            FileReader archivo = new FileReader("src/main/java/Modelo/veterinarios.txt");
             BufferedReader lector = new BufferedReader(archivo);
 
             String linea;

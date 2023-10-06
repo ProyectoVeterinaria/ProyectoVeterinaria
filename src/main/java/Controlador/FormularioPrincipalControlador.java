@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.Login;
 import Modelo.Veterinario;
+import Vista.FormularioLogin;
 import Vista.FormularioPrincipal;
 import Vista.RegistroVeterinario;
 import Vista.VistaAcercade;
@@ -40,7 +42,11 @@ public class FormularioPrincipalControlador implements ActionListener {
         }
         if (e.getSource() == vista.getCerrarsesion())
         {
-            System.exit(0);//cierra el proyecto
+           vista.setVisible(false);
+           FormularioLogin iniciosesion = new FormularioLogin();
+           iniciosesion.setVisible(true);
+           Login usuario= new Login();
+           ControladorLogin controlador= new ControladorLogin(iniciosesion, usuario);
         }
         if (e.getSource() == vista.getIntegrantes())
         {

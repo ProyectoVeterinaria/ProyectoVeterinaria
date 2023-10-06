@@ -8,10 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- *
- * @author Mariana M
- */
+
 public class Login {
     private static final String administradores = "src/main/java/Modelo/administradores.txt";
 

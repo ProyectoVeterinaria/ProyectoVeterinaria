@@ -1,2 +1,3 @@
-Antonio Ruiz Gonzalez;30;1000324;1124133;Veterinario;Cirugía Veterinaria
-Juan Ignacio Marín;45;100034345;11434;Veterinario;Cardiología Veterinaria;
+Antonio Ruiz Gonzalez;30;1000324;1124133;Veterinario;Cirugï¿½a Veterinaria;
+Juan Ignacio Marï¿½n;45;100034345;11434;Veterinario;Cardiologï¿½a Veterinaria;
+Mario Rendon;36;100568216;13243;Veterinario;Oncologï¿½a Veterinaria;
