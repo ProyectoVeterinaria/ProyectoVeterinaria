@@ -5,8 +5,20 @@
 package Vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.List;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -21,6 +33,13 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     public RegistroVeterinario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE); //
+        this.setLocationRelativeTo(null);
+        tablaMostrar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tablaMostrar.setDefaultEditor(Object.class, null);
+        pnlMostrar.setVisible(false);  
+        pnlModificar.setVisible(false);  
+        
     }
 
     /**
@@ -35,6 +54,10 @@ public class RegistroVeterinario extends javax.swing.JDialog {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -45,12 +68,28 @@ public class RegistroVeterinario extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         cbxEspecializacion = new javax.swing.JComboBox<>();
         btnRegistrar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         imgVeterinario = new javax.swing.JLabel();
         txtedad = new javax.swing.JTextField();
+        pnlMostrar = new javax.swing.JPanel();
+        desplegable = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaMostrar = new javax.swing.JTable();
+        pnlModificar = new javax.swing.JPanel();
+        btnModificar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        ItmConsultar = new javax.swing.JCheckBoxMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        ItmModificar = new javax.swing.JCheckBoxMenuItem();
+        btnFiltrar = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        ItmEliminar = new javax.swing.JCheckBoxMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        ItmMostrar = new javax.swing.JCheckBoxMenuItem();
+        ItmnoMostrar = new javax.swing.JCheckBoxMenuItem();
+        mnSalir = new javax.swing.JMenu();
+        ItmSalir = new javax.swing.JCheckBoxMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -59,8 +98,27 @@ public class RegistroVeterinario extends javax.swing.JDialog {
 
         jMenuItem2.setText("jMenuItem2");
 
+        jMenuItem3.setText("jMenuItem3");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jCheckBoxMenuItem3.setSelected(true);
+        jCheckBoxMenuItem3.setText("jCheckBoxMenuItem3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Formulario de registro veterinario");
+        setModal(true);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -79,6 +137,11 @@ public class RegistroVeterinario extends javax.swing.JDialog {
         txtcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcedulaActionPerformed(evt);
+            }
+        });
+        txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcedulaKeyTyped(evt);
             }
         });
 
@@ -109,7 +172,7 @@ public class RegistroVeterinario extends javax.swing.JDialog {
 
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
-        btnRegistrar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconanadir.png")); // NOI18N
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconanadir.png"));
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,47 +180,17 @@ public class RegistroVeterinario extends javax.swing.JDialog {
             }
         });
 
-        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(0, 0, 0));
-        btnCancelar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconcancelar.png")); // NOI18N
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeliminar.png"));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(0, 0, 0));
-        btnModificar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconeditar.png")); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconeliminar.png")); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnMostrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnMostrar.setForeground(new java.awt.Color(0, 0, 0));
-        btnMostrar.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\iconmostrar.png")); // NOI18N
-        btnMostrar.setText("Mostrar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
-            }
-        });
-
-        imgVeterinario.setIcon(new javax.swing.ImageIcon("E:\\USUARIO\\Escritorio\\Mariana Montoya\\INGENIERÍA INFORMÁTICA\\SEMESTRE IV\\TALLER DE PROGRAMACIÓN\\ProyectoVeterinaria\\src\\main\\java\\Vista\\images\\veterinario.png")); // NOI18N
+        imgVeterinario.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\veterinario.png"));
 
         txtedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,91 +198,216 @@ public class RegistroVeterinario extends javax.swing.JDialog {
             }
         });
 
+        desplegable.setForeground(new java.awt.Color(51, 255, 204));
+
+        tablaMostrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablaMostrar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Edad", "Cédula", "No. Licencia", "Especialización"
+            }
+        ));
+        tablaMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMostrarMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablaMostrar);
+
+        desplegable.setViewportView(jScrollPane3);
+
+        javax.swing.GroupLayout pnlMostrarLayout = new javax.swing.GroupLayout(pnlMostrar);
+        pnlMostrar.setLayout(pnlMostrarLayout);
+        pnlMostrarLayout.setHorizontalGroup(
+            pnlMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMostrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(desplegable, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        pnlMostrarLayout.setVerticalGroup(
+            pnlMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMostrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(desplegable, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(0, 0, 0));
+        btnModificar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconanadir.png"));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlModificarLayout = new javax.swing.GroupLayout(pnlModificar);
+        pnlModificar.setLayout(pnlModificarLayout);
+        pnlModificarLayout.setHorizontalGroup(
+            pnlModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 104, Short.MAX_VALUE)
+            .addGroup(pnlModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlModificarLayout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(btnModificar)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        pnlModificarLayout.setVerticalGroup(
+            pnlModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(pnlModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlModificarLayout.createSequentialGroup()
+                    .addGap(32, 32, 32)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(33, Short.MAX_VALUE)))
+        );
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconbuscar.png"));
+        jMenu1.setText("Consultar");
+
+        ItmConsultar.setSelected(true);
+        ItmConsultar.setText("Buscar un registro");
+        jMenu1.add(ItmConsultar);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeditar.png"));
+        jMenu2.setText("Modificar");
+
+        ItmModificar.setSelected(true);
+        ItmModificar.setText("Modifica un registro");
+        jMenu2.add(ItmModificar);
+
+        btnFiltrar.setText("Filtrar y selecionar registros");
+        jMenu2.add(btnFiltrar);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeliminar.png"));
+        jMenu3.setText("Eliminar");
+
+        ItmEliminar.setSelected(true);
+        ItmEliminar.setText("Eliminar un veterinario");
+        jMenu3.add(ItmEliminar);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconmostrar.png"));
+        jMenu4.setText("Mostrar");
+
+        ItmMostrar.setSelected(true);
+        ItmMostrar.setText("Mostrar todos los registros");
+        ItmMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItmMostrarActionPerformed(evt);
+            }
+        });
+        jMenu4.add(ItmMostrar);
+
+        ItmnoMostrar.setSelected(true);
+        ItmnoMostrar.setText("Dejar de mostrar");
+        ItmnoMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItmnoMostrarActionPerformed(evt);
+            }
+        });
+        jMenu4.add(ItmnoMostrar);
+
+        jMenuBar1.add(jMenu4);
+
+        mnSalir.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconcancelar.png"));
+        mnSalir.setText("Salir");
+
+        ItmSalir.setSelected(true);
+        ItmSalir.setText("Salir");
+        mnSalir.add(ItmSalir);
+
+        jMenuBar1.add(mnSalir);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(imgVeterinario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegistrar))
+                        .addGap(85, 85, 85)
+                        .addComponent(imgVeterinario)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(56, 56, 56))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(47, 47, 47)))
+                        .addGap(120, 120, 120)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLimpiar)
+                                .addGap(112, 112, 112)
+                                .addComponent(btnRegistrar))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtnoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxEspecializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(56, 56, 56))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(47, 47, 47)))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtnoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbxEspecializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnModificar)
-                                            .addGap(50, 50, 50)
-                                            .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(txtcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 157, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(pnlMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(pnlModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
+                        .addGap(31, 31, 31)
                         .addComponent(imgVeterinario))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(txtnoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel7))
+                            .addComponent(cbxEspecializacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxEspecializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar)
-                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -268,24 +426,8 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     }//GEN-LAST:event_txtnoLicenciaActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void cbxEspecializacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEspecializacionActionPerformed
         // TODO add your handling code here:
@@ -294,6 +436,30 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     private void txtedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtedadActionPerformed
+
+    private void tablaMostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMostrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaMostrarMouseClicked
+
+    private void ItmMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmMostrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItmMostrarActionPerformed
+
+    private void ItmnoMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmnoMostrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItmnoMostrarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
+       
+    }//GEN-LAST:event_txtcedulaKeyTyped
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,98 +512,160 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JCheckBoxMenuItem ItmConsultar;
+    private javax.swing.JCheckBoxMenuItem ItmEliminar;
+    private javax.swing.JCheckBoxMenuItem ItmModificar;
+    private javax.swing.JCheckBoxMenuItem ItmMostrar;
+    private javax.swing.JCheckBoxMenuItem ItmSalir;
+    private javax.swing.JCheckBoxMenuItem ItmnoMostrar;
+    private javax.swing.JMenuItem btnFiltrar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cbxEspecializacion;
+    private javax.swing.JScrollPane desplegable;
     private javax.swing.JLabel imgVeterinario;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JMenu mnSalir;
+    private javax.swing.JPanel pnlModificar;
+    private javax.swing.JPanel pnlMostrar;
+    private javax.swing.JTable tablaMostrar;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtedad;
     private javax.swing.JTextField txtnoLicencia;
     // End of variables declaration//GEN-END:variables
-    
-    //getters y setters para usarlos en controlador
-    public JButton getCancelar() {
-        return btnCancelar;
-    }  
 
+
+   
+
+    //getters y setters para usarlos en controlador
+    
+
+    public JPanel getPnlMostrar() {
+        return pnlMostrar;
+    }
+     public JPanel getPnlModificar() {
+        return pnlModificar;
+    }
+     public JButton getModificar() {
+        return btnModificar;
+    }
     public JButton getRegistrar() {
         return btnRegistrar;
     }
 
-    public void setBtnRegistrar(JButton btnRegistar) {
-        this.btnRegistrar = btnRegistar;
-    }
-
+   
     public String getnoLicencia() {
         return txtnoLicencia.getText(); //retorna String
-    }
-
-    public void setnoLicencia(JTextField txtlicencia) {
-        this.txtnoLicencia = txtlicencia;
     }
 
     public String getNombre() {
         return txtNombre.getText();
     }
 
-    public void setNombre(JTextField txtNombre) {
-        this.txtNombre = txtNombre;
-    }
 
     public String getCedula() {
         return txtcedula.getText();
     }
 
-    public void setCedula(JTextField txtcedula) {
-        this.txtcedula = txtcedula;
-    }
 
     public String getEspecializacion() {
         return cbxEspecializacion.getSelectedItem().toString();
     }
 
-    public void setEspecializacion(JComboBox<String> cbxEspecializacion) {
-        this.cbxEspecializacion = cbxEspecializacion;
-    }
+
 
     public String getEdad() {
         return txtedad.getText();
     }
 
     public JButton getbtnEliminar() {
-        return btnEliminar;
+        return btnLimpiar;
     }
 
-    public JButton getBtnModificar() {
-        return btnModificar;
+    public JScrollPane getDesplegable() {
+        return desplegable;
     }
 
-    public JButton getBtnMostrar() {
-        return btnMostrar;
+    public JTable getTablaMostrar() {
+        return tablaMostrar;
     }
 
-
-    public void setEdad(JTextField txtedad) {
-        this.txtedad = txtedad;
+    public JCheckBoxMenuItem getItmSalir() {
+        return ItmSalir;
     }
 
-   
+    public JCheckBoxMenuItem getItmEliminar() {
+        return ItmEliminar;
+    }
 
+    public JCheckBoxMenuItem getItmMostrar() {
+        return ItmMostrar;
+    }
+
+    public JCheckBoxMenuItem getItmConsultar() {
+        return ItmConsultar;
+    }
+
+    public JCheckBoxMenuItem getItmModificar() {
+        return ItmModificar;
+    }
+
+    public JMenuItem getBtnFiltrar() {
+        return btnFiltrar;
+    }
+
+    public JCheckBoxMenuItem getItmnoMostrar() {
+        return ItmnoMostrar;
+    }
+
+    public JButton getBtnLimpiar() {
+        return btnLimpiar;
+    }
     
 
     
+    public void setnoLicencia(String noLicencia) {
+    this.txtnoLicencia.setText(noLicencia);
+}
+
+public void setNombre(String nombre) {
+    this.txtNombre.setText(nombre);
+}
+
+public void setCedula(String cedula) {
+    this.txtcedula.setText(cedula);
+}
+
+public void setEspecializacion(String especializacion) {
+    this.cbxEspecializacion.setSelectedItem(especializacion);
+}
+
+ 
+
+   public void setEdad(String edad) {
+    this.txtedad.setText(edad);
+}
+
+ 
     
 
 }

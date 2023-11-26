@@ -1,4 +1,2 @@
-Antonio Ruiz Gonzalez;30;1000324;1124133;Veterinario;Cirugï¿½a Veterinaria;
-Juan Ignacio Marï¿½n;45;100034345;11434;Veterinario;Cardiologï¿½a Veterinaria;
-Mario Rendon;36;100568216;13243;Veterinario;Oncologï¿½a Veterinaria;
-Jesús Monsalve;54;133432;123244;Veterinario;Neurología Veterinaria;
+Mario Redon;36;100568216;13243;Veterinario;Cirugía Veterinaria;
+Mario Antonio Marin;58;100034987;114374;Veterinario;Cardiología Veterinaria;

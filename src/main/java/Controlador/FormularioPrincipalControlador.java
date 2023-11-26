@@ -27,6 +27,7 @@ public class FormularioPrincipalControlador implements ActionListener {
         this.vista.getRegistrocliente().addActionListener(this);
         this.vista.getCerrarsesion().addActionListener(this);
         this.vista.getIntegrantes().addActionListener(this);
+        this.vista.getSalir().addActionListener(this);
 
     }
 
@@ -38,7 +39,9 @@ public class FormularioPrincipalControlador implements ActionListener {
             
             Veterinario veterinario = new Veterinario("", "", "", "","");
             RegistroVeterinarioContolador controlador = new RegistroVeterinarioContolador(frmveterinario, veterinario);
+            
             frmveterinario.setVisible(true);
+            frmveterinario.setUndecorated(true);
         }
         if (e.getSource() == vista.getCerrarsesion())
         {
@@ -47,6 +50,10 @@ public class FormularioPrincipalControlador implements ActionListener {
            iniciosesion.setVisible(true);
            Login usuario= new Login();
            ControladorLogin controlador= new ControladorLogin(iniciosesion, usuario);
+        }
+        if(e.getSource() == vista.getSalir())
+        {
+            System.exit(0);
         }
         if (e.getSource() == vista.getIntegrantes())
         {

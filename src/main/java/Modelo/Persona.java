@@ -21,6 +21,10 @@ public class Persona {
         this.rol = rol;
     }
 
+    public Persona() {
+    }
+    
+
     // Getters y setters
     public String getNombre() {
         return nombre;

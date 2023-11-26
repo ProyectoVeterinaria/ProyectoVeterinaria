@@ -8,6 +8,5 @@ package Modelo;
  *
  * @author Mariana M
  */
-public class Mascota {
-    
+public  class Mascota {
 }

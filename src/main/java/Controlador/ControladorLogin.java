@@ -38,25 +38,23 @@ public class ControladorLogin implements ActionListener {
                 modelo = new Login(vista.getNombreUsuario(), vista.getContraseña(), vista.getTipousuario());
                 if (modelo.validarIngreso())
                 {
-                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso","Validacion",3);
-                     vista.setVisible(false);
-                     FormularioPrincipal principal=new FormularioPrincipal();   
-                     FormularioPrincipalControlador formprincipal= new FormularioPrincipalControlador(principal);
-                     principal.setVisible(true);
-                     
-                }else
+                    JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                    vista.setVisible(false);
+                    FormularioPrincipal principal = new FormularioPrincipal();
+                    FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal);
+                    principal.setVisible(true);
+
+                } else
                 {
-                    JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.","Vlidacion",0);
+                    JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
                 }
 
             }
-            
 
-        }else
-            if (e.getSource() == vista.getBtnsalir())
-            {
-                System.exit(0);//cierra el proyecto
-            } 
+        } else if (e.getSource() == vista.getBtnsalir())
+        {
+            System.exit(0);//cierra el proyecto
+        }
 
     }
 

@@ -31,7 +31,7 @@
                   <Component id="jlbAlejandro" min="-2" max="-2" attributes="0"/>
                   <Component id="jlbSara" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace pref="122" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -62,8 +62,8 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\Icon1.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Vista\\images\\Icon1.png&quot;)" type="code"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Sara Munera Ocampo"/>
       </Properties>
@@ -73,8 +73,8 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\Icon3.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Vista\\images\\Icon3.png&quot;)" type="code"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alejandro Correa Arias"/>
       </Properties>
@@ -84,8 +84,8 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\USUARIO\Escritorio\Mariana Montoya\INGENIER&#xcd;A INFORM&#xc1;TICA\SEMESTRE IV\TALLER DE PROGRAMACI&#xd3;N\ProyectoVeterinaria\src\main\java\Vista\images\Icon2.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Vista\\images\\Icon2.png&quot;)" type="code"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Mariana Montoya Sep&#xfa;lveda"/>
       </Properties>
@@ -95,7 +95,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Versi&#xf3;n 1.0"/>
+        <Property name="text" type="java.lang.String" value="Versi&#xf3;n 2.0"/>
       </Properties>
     </Component>
   </SubComponents>

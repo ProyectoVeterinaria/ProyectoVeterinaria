@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class Login {
     private static final String administradores = "src/main/java/Modelo/administradores.txt";
-
     private String usuario;
     private String contraseña;
     private String tipo;
@@ -67,7 +66,7 @@ public class Login {
 
                     if (usuario.equals(usuarioAdmin) && contraseña.equals(contraseñaAdmin) && tipo.equals(tipoAdmin)) {
                         // Coinciden los datos, el inicio de sesión es exitoso
-                        escritor.close();
+                       escritor.close();
                         return true;
                     }
                 }
