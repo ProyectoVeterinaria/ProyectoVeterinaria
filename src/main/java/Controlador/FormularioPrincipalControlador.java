@@ -5,9 +5,11 @@
 package Controlador;
 
 import Modelo.Login;
+import Modelo.Vendedor;
 import Modelo.Veterinario;
 import Vista.FormularioLogin;
 import Vista.FormularioPrincipal;
+import Vista.RegistroVendedor;
 import Vista.RegistroVeterinario;
 import Vista.VistaAcercade;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,7 @@ public class FormularioPrincipalControlador implements ActionListener {
         this.vista.getCerrarsesion().addActionListener(this);
         this.vista.getIntegrantes().addActionListener(this);
         this.vista.getSalir().addActionListener(this);
+        this.vista.getItmRegistroVendedor().addActionListener(this);
 
     }
 
@@ -38,10 +41,22 @@ public class FormularioPrincipalControlador implements ActionListener {
             RegistroVeterinario frmveterinario = new RegistroVeterinario(vista, true); // El segundo parámetro indica que es modal
             
             Veterinario veterinario = new Veterinario("", "", "", "","");
+            
             RegistroVeterinarioContolador controlador = new RegistroVeterinarioContolador(frmveterinario, veterinario);
             
             frmveterinario.setVisible(true);
             frmveterinario.setUndecorated(true);
+        }
+        if (e.getSource() == vista.getItmRegistroVendedor())
+        {
+            RegistroVendedor frmvendedor = new RegistroVendedor(vista, true); 
+            
+            Vendedor vendedor = new Vendedor("", "", "","","");
+            
+            RegistroVendedorControlador controlador = new RegistroVendedorControlador(frmvendedor, vendedor);
+            
+           frmvendedor.setVisible(true);
+           frmvendedor.setUndecorated(true);
         }
         if (e.getSource() == vista.getCerrarsesion())
         {

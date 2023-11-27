@@ -1,2 +1,9 @@
 Mario Redon;36;100568216;13243;Veterinario;Cirugía Veterinaria;
 Mario Antonio Marin;58;100034987;114374;Veterinario;Cardiología Veterinaria;
+Carlos Fernando Arias;23;3432452;243242;Veterinario;Neurología Veterinaria;
+Gonzalo Florez Vega;42;1224141;324234;Veterinario;Neurología Veterinaria;
+1;1;1;1;Veterinario;Cirugía Veterinaria;
+2;2;2;2;Veterinario;Cirugía Veterinaria;
+3;3;3;3;Veterinario;Cirugía Veterinaria;
+3;3;qqe;3;Veterinario;Cirugía Veterinaria;
+Raúl Felipe Higuita;23;214243;435343;Veterinario;Oncología Veterinaria;

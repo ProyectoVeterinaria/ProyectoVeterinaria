@@ -38,7 +38,6 @@ public class RegistroVeterinarioContolador implements ActionListener {
         this.vista.getItmMostrar().addActionListener(this);
         this.vista.getItmnoMostrar().addActionListener(this);
         this.vista.getModificar().addActionListener(this);
-        this.vista.getItmConsultar().addActionListener(this);
         this.vista.getBtnFiltrar().addActionListener(this);
         cargarTabla();
         habilitarMouseListener(false);
@@ -47,7 +46,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-           
+
         if (e.getSource() == vista.getRegistrar())
         {
             if (validarDatos())
@@ -57,16 +56,15 @@ public class RegistroVeterinarioContolador implements ActionListener {
                 {
                     veterinario.escibirRegistro();
                     cargarTabla();
+                    limpiarCampos();
                     vista.getPnlMostrar().setVisible(true);
 
                 }
             }
-                        vista.getPnlMostrar().setVisible(false);   
-
         }
         if (e.getSource() == vista.getBtnFiltrar())
         {
-            
+
             vista.getPnlMostrar().setVisible(true);
 
             String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del veterinario que deseas cambiar información", "Modificar", 2);
@@ -78,7 +76,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
             {
                 if (validarDatos())
                 {
-                    
+
                     String nombre = vista.getNombre();
                     String edad = vista.getEdad();
                     String Cedula = vista.getCedula();
@@ -91,7 +89,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
 
                 }
             }
-            
+
         }
 
         if (e.getSource() == vista.getBtnLimpiar())
@@ -106,17 +104,18 @@ public class RegistroVeterinarioContolador implements ActionListener {
         {
             veterinario.eliminarRegistro();
             cargarTabla();
-             vista.getPnlMostrar().setVisible(true);  
+            vista.getPnlMostrar().setVisible(true);
         }
         if (e.getSource() == vista.getItmMostrar())
         {
             vista.getPnlMostrar().setVisible(true);
             cargarTabla();
-            habilitarMouseListener(false);    
+            habilitarMouseListener(false);
         }
         if (e.getSource() == vista.getItmnoMostrar())
         {
             vista.getPnlMostrar().setVisible(false);
+            vista.getPnlModificar().setVisible(false);
             limpiarCampos();
         }
     }
@@ -162,7 +161,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
             vista.setCedula(cedula);
             vista.setnoLicencia(noLicencia);
             vista.setEspecializacion(especializacion);
-            
+
             vista.getPnlModificar().setVisible(true);
         }
     }
@@ -176,22 +175,25 @@ public class RegistroVeterinarioContolador implements ActionListener {
     }
 
     private void habilitarMouseListener(boolean habilitar) {
-    if (habilitar) {
-        // Agregar el MouseListener y almacenarlo para poder removerlo después
-        tablaMostrarMouseListener = new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMostrarModificar(evt);
-            }
-        };
-        vista.getTablaMostrar().addMouseListener(tablaMostrarMouseListener);
-    } else {
-        // Remover el MouseListener específico
-        vista.getTablaMostrar().removeMouseListener(tablaMostrarMouseListener);
-        vista.getPnlModificar().setVisible(false);
-        cargarTabla();
+        if (habilitar)
+        {
+            // Agregar el MouseListener y almacenarlo para poder removerlo después
+            tablaMostrarMouseListener = new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tablaMostrarModificar(evt);
+                }
+            };
+            vista.getTablaMostrar().addMouseListener(tablaMostrarMouseListener);
+        } else
+        {
+            // Remover el MouseListener específico
+            vista.getTablaMostrar().removeMouseListener(tablaMostrarMouseListener);
+            vista.getPnlModificar().setVisible(false);
+            cargarTabla();
+        }
     }
-}
+
     private void filtrarRegistros() {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaMostrar().getModel();
         modelo.setRowCount(0);

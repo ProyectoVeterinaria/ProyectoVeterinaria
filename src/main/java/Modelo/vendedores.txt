@@ -1,0 +1,6 @@
+
+1;1;1;1;Vendedor;1;
+2;2;2;2;Vendedor;2;
+3;3;3;3;Vendedor;3;
+sa;s;s;s;Vendedor;s;
+sa;45;131231;23;Vendedor;Empresa;

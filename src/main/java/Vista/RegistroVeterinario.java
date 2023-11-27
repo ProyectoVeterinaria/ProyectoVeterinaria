@@ -78,8 +78,6 @@ public class RegistroVeterinario extends javax.swing.JDialog {
         pnlModificar = new javax.swing.JPanel();
         btnModificar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        ItmConsultar = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ItmModificar = new javax.swing.JCheckBoxMenuItem();
         btnFiltrar = new javax.swing.JMenuItem();
@@ -266,15 +264,6 @@ public class RegistroVeterinario extends javax.swing.JDialog {
                     .addContainerGap(33, Short.MAX_VALUE)))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconbuscar.png"));
-        jMenu1.setText("Consultar");
-
-        ItmConsultar.setSelected(true);
-        ItmConsultar.setText("Buscar un registro");
-        jMenu1.add(ItmConsultar);
-
-        jMenuBar1.add(jMenu1);
-
         jMenu2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeditar.png"));
         jMenu2.setText("Modificar");
 
@@ -377,15 +366,18 @@ public class RegistroVeterinario extends javax.swing.JDialog {
                         .addGap(31, 31, 31)
                         .addComponent(imgVeterinario))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel3)
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -512,7 +504,6 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem ItmConsultar;
     private javax.swing.JCheckBoxMenuItem ItmEliminar;
     private javax.swing.JCheckBoxMenuItem ItmModificar;
     private javax.swing.JCheckBoxMenuItem ItmMostrar;
@@ -532,7 +523,6 @@ public class RegistroVeterinario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -621,9 +611,6 @@ public class RegistroVeterinario extends javax.swing.JDialog {
         return ItmMostrar;
     }
 
-    public JCheckBoxMenuItem getItmConsultar() {
-        return ItmConsultar;
-    }
 
     public JCheckBoxMenuItem getItmModificar() {
         return ItmModificar;

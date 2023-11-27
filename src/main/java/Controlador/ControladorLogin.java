@@ -40,6 +40,7 @@ public class ControladorLogin implements ActionListener {
                 {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
                     vista.setVisible(false);
+                    
                     FormularioPrincipal principal = new FormularioPrincipal();
                     FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal);
                     principal.setVisible(true);

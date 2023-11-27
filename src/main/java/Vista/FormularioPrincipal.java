@@ -45,6 +45,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         mnu_vetrinario = new javax.swing.JMenu();
         registrarveterinario = new javax.swing.JMenuItem();
         mnu_vendedor = new javax.swing.JMenu();
+        ItmRegistroVendedor = new javax.swing.JMenuItem();
         mnu_historiaclinica = new javax.swing.JMenu();
         mnu_factura = new javax.swing.JMenu();
         mnu_acercade = new javax.swing.JMenu();
@@ -115,6 +116,10 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         mnu_vendedor.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconvendedor.png"));
         mnu_vendedor.setText("Vendedores");
+
+        ItmRegistroVendedor.setText("Administrar vendedor");
+        mnu_vendedor.add(ItmRegistroVendedor);
+
         barraMenu.add(mnu_vendedor);
 
         mnu_historiaclinica.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconhistoriaclinica.png"));
@@ -247,6 +252,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ItmRegistroVendedor;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem cerrarsesion;
     private javax.swing.JMenuItem editarcliente;
@@ -274,6 +280,14 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     
     public JMenuItem getEditarcliente() {
         return editarcliente;
+    }
+
+    public JMenuItem getItmRegistroVendedor() {
+        return ItmRegistroVendedor;
+    }
+
+    public JMenu getMnu_historiaclinica() {
+        return mnu_historiaclinica;
     }
 
     public void setEditarcliente(JMenuItem editarcliente) {

@@ -85,6 +85,13 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Vendedores"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="ItmRegistroVendedor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Administrar vendedor"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnu_historiaclinica">
           <Properties>

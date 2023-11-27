@@ -16,8 +16,6 @@ public class Principal  {
         Login usuario= new Login();
         ControladorLogin controlador= new ControladorLogin(iniciosesion, usuario);
        
-        
-        
     }
     
 }

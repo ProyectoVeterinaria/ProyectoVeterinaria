@@ -2,18 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package Modelo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- *
- * @author Mariana M
- */
 public class Persona {
-    private String nombre;
-    private String edad;
-    private String identificacion;
-    private String rol;
+    @JsonProperty("nombre")
+     String nombre;
 
+    @JsonProperty("edad")
+     String edad;
+
+    @JsonProperty("identificacion")
+     String identificacion;
+
+    @JsonProperty("rol")
+    private String rol;
     public Persona(String nombre, String edad, String identificacion, String rol) {
         this.nombre = nombre;
         this.edad = edad;
