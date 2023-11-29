@@ -57,7 +57,7 @@ public class Vendedor extends Persona {
             String datos = getNombre() + ";" + getEdad() + ";" + getIdentificacion() + ";" + getCodigoVendedor() + ";" + getRol() + ";" + getEmpresa() + ";";
             escritor.write(datos);
             escritor.newLine();
-            JOptionPane.showMessageDialog(null, "Veterinario registrado correctamente", "Usuario registrado", 3);
+            JOptionPane.showMessageDialog(null, "Vendedor registrado correctamente", "Usuario registrado", 3);
 
         } catch (IOException e)
         {
@@ -65,6 +65,28 @@ public class Vendedor extends Persona {
             JOptionPane.showMessageDialog(null, "Error al guardar", "Error", 0);
         }
     }
+    public boolean validarDatosVendedor() {
+        boolean nombreValido = validarNombre(this.getNombre());
+        boolean edadValida = validarEdad(this.getEdad());
+        boolean cedulaValida = validarCedula(this.getIdentificacion());
+        boolean empresaValida = validarNombreEmpresa(this.Empresa);
+
+        if (!nombreValido) {
+            JOptionPane.showMessageDialog(null, "Nombre inválido");
+        }
+        if (!edadValida) {
+            JOptionPane.showMessageDialog(null, "Edad inválida");
+        }
+        if (!cedulaValida) {
+            JOptionPane.showMessageDialog(null, "Cédula inválida");
+        }
+        if (!empresaValida) {
+            JOptionPane.showMessageDialog(null, "Nombre de empresa inválido");
+        }
+
+        return nombreValido && edadValida && cedulaValida && empresaValida;
+    }
+    
 
     public boolean validarRepetidos() {
         try
@@ -93,6 +115,53 @@ public class Vendedor extends Persona {
         return true;
 
     }
+    
+    public void modificarRegistros(String cedula) {
+    boolean encontrado = false;
+
+    try {
+        ArrayList<String> lineas = new ArrayList<>();
+        String linea;
+        BufferedReader reader = new BufferedReader(new FileReader(archivo));
+        while ((linea = reader.readLine()) != null) {
+            String[] campos = linea.split(";");
+            if (campos.length >= 6 && campos[2].equals(cedula)) {
+                
+                campos[0] = this.nombre;
+                campos[1] = this.edad;
+                campos[2] = this.identificacion;
+                campos[3] = this.codigoVendedor;
+                campos[5] = this.Empresa;
+
+                // Luego, construyes la nueva línea
+                linea = String.join(";", campos);
+                encontrado = true;
+            }
+            lineas.add(linea);
+        }
+        reader.close();
+
+        // Reescribe el archivo con las modificaciones
+        BufferedWriter escribir = new BufferedWriter(new FileWriter(archivo));
+        for (String l : lineas) {
+            escribir.write(l);
+            escribir.newLine();
+        }
+        escribir.close();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error al modificar el registro", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    if (encontrado) {
+        JOptionPane.showMessageDialog(null, "Registro modificado correctamente", "Registro modificado", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(null, "La cédula ingresada no se encuentra registrada", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
 
     public ArrayList<String[]> leerRegistros() {
         ArrayList<String[]> registros = new ArrayList<>();
@@ -131,7 +200,7 @@ public class Vendedor extends Persona {
     
     public void eliminarRegistro() {
         boolean encontrado = false;
-        String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del veterinario que deseas eliminar", "Eliminar", 2);
+        String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del vendedor que deseas eliminar", "Eliminar", 2);
         try
         {
             ArrayList<String> lineas = new ArrayList<>();

@@ -59,6 +59,13 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mascotas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="ItmRegistrarMascotas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Administrar Mascotas"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnu_vetrinario">
           <Properties>

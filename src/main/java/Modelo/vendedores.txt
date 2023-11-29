@@ -1,6 +1,5 @@
-
-1;1;1;1;Vendedor;1;
-2;2;2;2;Vendedor;2;
-3;3;3;3;Vendedor;3;
-sa;s;s;s;Vendedor;s;
-sa;45;131231;23;Vendedor;Empresa;
+Juan Carlos Areiza;22;12456142;2322;Vendedor;AsoPets;
+Luis Alberto Ortiz;67;1234325;342342;Vendedor;Bayer Animal Health;
+Tobias Quiroz;34;143423;12434;Vendedor;MSA AS;
+Jorge Leon Benitez;21;3423231;2423423;Vendedor;Dechra Pharmaceuticals;
+Valentina Goez;19;100084481;352353;Vendedor;Zoetis

@@ -4,11 +4,11 @@
  */
 package Controlador;
 
+import Modelo.Mascota;
 import Modelo.Vendedor;
-import Modelo.Veterinario;
-import Vista.RegistroVeterinario;
+import Vista.RegistroMascotaFraame;
+import Vista.RegistroVendedor;
 import java.awt.Component;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
@@ -22,114 +22,139 @@ import javax.swing.table.TableCellRenderer;
  *
  * @author Mariana M
  */
-public class RegistroVeterinarioContolador implements ActionListener {
+public class RegistroMascotaControlador implements ActionListener {
 
-    private RegistroVeterinario vista;
-    private Veterinario veterinario;
-    private String digitosCedula = "";
+    private RegistroMascotaFraame vista;
+    private Mascota mascota;
+    private String nombreBuscar = "";
     private MouseListener tablaMostrarMouseListener;
 
-    public RegistroVeterinarioContolador(RegistroVeterinario vista, Veterinario veterinario) {
+    public RegistroMascotaControlador(RegistroMascotaFraame vista, Mascota mascota) {
         this.vista = vista;
-        this.veterinario = veterinario;
+        this.mascota = mascota;
         this.vista.getRegistrar().addActionListener(this);
-        this.vista.getBtnLimpiar().addActionListener(this);
+        this.vista.getItmModificar().addActionListener(this);
         this.vista.getItmSalir().addActionListener(this);
-        this.vista.getItmEliminar().addActionListener(this);
-        this.vista.getItmMostrar().addActionListener(this);
+        this.vista.getBtnModificar().addActionListener(this);
+        this.vista.getPnlModificar().setVisible(false);
         this.vista.getItmRegistrar().addActionListener(this);
-        this.vista.getItmnoMostrar().addActionListener(this);
-        this.vista.getModificar().addActionListener(this);
-        this.vista.getBtnFiltrar().addActionListener(this);
+        this.vista.getItmMostrar().addActionListener(this);
+        this.vista.getItmNomostrar().addActionListener(this);
+        this.vista.getItmEliminar().addActionListener(this);
+        this.vista.getBtnLimpiar().addActionListener(this);
+        vista.getPnlMostrar().setVisible(false);
         cargarTabla();
-        habilitarMouseListener(false);
-
+        //habilitarMouseListener(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == vista.getItmSalir())
+        {
+            vista.setVisible(false);
+        }
         if (e.getSource() == vista.getRegistrar())
         {
+            habilitarMouseListener(false);
+
             if (validarDatos())
             {
-                veterinario = new Veterinario(vista.getnoLicencia(), vista.getEspecializacion(), vista.getNombre(), vista.getEdad(), vista.getCedula());
-                if (veterinario.validarRepetidos())
+                mascota = new Mascota(vista.getNombre(), vista.getRaza(), vista.getEdad(), vista.getNombreDueno());
+                if (mascota.validarDatosMascota())
                 {
-                    if (veterinario.validarDatosVeterinario())
+                    if (mascota.validarRepetidos())
                     {
-                        veterinario.escibirRegistro();
+                        mascota.escibirRegistro();
                         cargarTabla();
                         limpiarCampos();
                         vista.getPnlMostrar().setVisible(true);
-                    }
 
+                    }
                 }
             }
         }
-        if (e.getSource() == vista.getBtnFiltrar())
-        {
-            vista.getPnlRegistrar().setVisible(false);
-            vista.getPnlMostrar().setVisible(true);
 
-            String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del veterinario que deseas cambiar información", "Modificar", 2);
-            digitosCedula = cedula;
+        if (e.getSource() == vista.getItmRegistrar())
+        {
+            limpiarCampos();
+            vista.getPnlFormulario().setVisible(true);
+            vista.getPnlRegistrar().setVisible(true);
+            habilitarMouseListener(false);
+            
+        }
+        if (e.getSource() == vista.getItmModificar())
+        {
+            vista.getPnlFormulario().setVisible(true);
+            cargarTabla();
+            vista.getPnlMostrar().setVisible(true);
+            vista.getPnlRegistrar().setVisible(false);
+            String dueno = JOptionPane.showInputDialog(null, "Escribe el nombre del dueño de la mascota a la que deseas cambiar información", "Modificar", 2);
+            nombreBuscar = dueno;
 
             filtrarRegistros();
             habilitarMouseListener(true);
 
         }
-        if (e.getSource() == vista.getModificar())
+
+        if (e.getSource() == vista.getBtnModificar())
         {
+
+            vista.getPnlRegistrar().setVisible(false);
 
             if (validarDatos())
             {
 
-               
-                veterinario = new Veterinario(vista.getnoLicencia(), vista.getEspecializacion(), vista.getNombre(), vista.getEdad(), vista.getCedula());
-                if (veterinario.validarDatosVeterinario())
+                mascota = new Mascota(vista.getNombre(), vista.getRaza(), vista.getEdad(), vista.getNombreDueno());
+                if (mascota.validarDatosMascota())
                 {
-                    veterinario.modificarRegistros(vista.getCedula());
+                    mascota.modificarRegistros(vista.getNombreDueno());
                     limpiarCampos();
                     cargarTabla();
                 }
 
-               
             }
         }
-        if (e.getSource() == vista.getItmRegistrar())
-        {
-            limpiarCampos();
-            vista.getPnlRegistrar().setVisible(true);
-            habilitarMouseListener(false);
-        }
-        if (e.getSource() == vista.getBtnLimpiar())
-        {
-            limpiarCampos();
-        }
-        if (e.getSource() == vista.getItmSalir())
-        {
-            vista.setVisible(false);
-        }
-        if (e.getSource() == vista.getItmEliminar())
-        {
-            vista.getPnlRegistrar().setVisible(false);
-            veterinario.eliminarRegistro();
-            cargarTabla();
-            vista.getPnlMostrar().setVisible(true);
-        }
+
         if (e.getSource() == vista.getItmMostrar())
         {
+
+            vista.getPnlFormulario().setVisible(false);
+            vista.getPnlRegistrar().setVisible(false);
             vista.getPnlMostrar().setVisible(true);
             cargarTabla();
             habilitarMouseListener(false);
         }
-        if (e.getSource() == vista.getItmnoMostrar())
+        if (e.getSource() == vista.getItmNomostrar())
         {
+            vista.getPnlFormulario().setVisible(true);
             vista.getPnlMostrar().setVisible(false);
             vista.getPnlModificar().setVisible(false);
             limpiarCampos();
         }
+
+        if (e.getSource() == vista.getItmEliminar())
+        {
+            vista.getPnlFormulario().setVisible(false);
+            vista.getPnlRegistrar().setVisible(false);
+            mascota.eliminarRegistro();
+            cargarTabla();
+            vista.getPnlMostrar().setVisible(true);
+        }
+        
+        if (e.getSource() == vista.getBtnLimpiar())
+        {
+            limpiarCampos();
+        }
+
+    }
+
+    private boolean validarDatos() {
+        if (vista.getNombre().isEmpty() || vista.getNombreDueno().isEmpty() || vista.getEdad().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.", "Validación", 2);
+            return false;
+        }
+        return true;
     }
 
     public void cargarTabla() {
@@ -137,7 +162,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
 
         modelo.setRowCount(0);
 
-        ArrayList<String[]> registros = veterinario.leerRegistros();
+        ArrayList<String[]> registros = mascota.leerRegistros();
         for (String[] registro : registros)
         {
             modelo.addRow(registro);
@@ -146,7 +171,7 @@ public class RegistroVeterinarioContolador implements ActionListener {
 
         for (int i = 0; i < vista.getTablaMostrar().getColumnCount(); i++)
         {
-            int ancho = 100; // Ancho inicial mínimo
+            int ancho = 115; // Ancho inicial mínimo
             for (int j = 0; j < vista.getTablaMostrar().getRowCount(); j++)
             {
                 TableCellRenderer renderizador = vista.getTablaMostrar().getCellRenderer(j, i);
@@ -164,26 +189,16 @@ public class RegistroVeterinarioContolador implements ActionListener {
         {
             String nombre = vista.getTablaMostrar().getValueAt(filaSeleccionada, 0).toString();
             String edad = vista.getTablaMostrar().getValueAt(filaSeleccionada, 1).toString();
-            String cedula = vista.getTablaMostrar().getValueAt(filaSeleccionada, 2).toString();
-            String noLicencia = vista.getTablaMostrar().getValueAt(filaSeleccionada, 3).toString();
-            String especializacion = vista.getTablaMostrar().getValueAt(filaSeleccionada, 4).toString();
+            String raza = vista.getTablaMostrar().getValueAt(filaSeleccionada, 2).toString();
+            String dueno = vista.getTablaMostrar().getValueAt(filaSeleccionada, 3).toString();
 
             vista.setNombre(nombre);
             vista.setEdad(edad);
-            vista.setCedula(cedula);
-            vista.setnoLicencia(noLicencia);
-            vista.setEspecializacion(especializacion);
+            vista.setRaza(raza);
+            vista.setNombreDueno(dueno);
 
             vista.getPnlModificar().setVisible(true);
         }
-    }
-
-    private void limpiarCampos() {
-        vista.setNombre("");
-        vista.setEdad("");
-        vista.setCedula("");
-        vista.setnoLicencia("");
-        vista.setEspecializacion("");
     }
 
     private void habilitarMouseListener(boolean habilitar) {
@@ -210,25 +225,25 @@ public class RegistroVeterinarioContolador implements ActionListener {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaMostrar().getModel();
         modelo.setRowCount(0);
 
-        ArrayList<String[]> registros = veterinario.leerRegistros();
+        ArrayList<String[]> registros = mascota.leerRegistros();
         for (String[] registro : registros)
         {
-            // Verifica si la cédula comienza con los dígitos ingresados por el usuario
-            if (registro[2].startsWith(digitosCedula))
+            // Obtener el nombre a buscar en minúsculas para hacer la comparación
+            String nombreRegistro = registro[3].toLowerCase();
+            nombreBuscar = nombreBuscar.toLowerCase();
+
+            if (nombreRegistro.startsWith(nombreBuscar))
             {
                 modelo.addRow(registro);
             }
-
         }
     }
 
-    private boolean validarDatos() {
-        if (vista.getNombre().isEmpty() || vista.getCedula().isEmpty() || vista.getnoLicencia().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.", "Validación", 2);
-            return false;
-        }
-        return true;
+    private void limpiarCampos() {
+        vista.setNombre("");
+        vista.setEdad("");
+        vista.setNombreDueno("");
+        vista.setRaza("");
     }
 
 }

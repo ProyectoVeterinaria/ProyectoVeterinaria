@@ -108,7 +108,7 @@ public class Veterinario extends Persona {
         }
     }
 
-public void modificarRegistros(String cedula, String nombre, String edad, String noLicencia, String especializacion) {
+public void modificarRegistros(String cedula) {
     boolean encontrado = false;
 
     try {
@@ -125,7 +125,7 @@ public void modificarRegistros(String cedula, String nombre, String edad, String
                 campos[3] = noLicencia;
                 campos[5] = especializacion;
 
-                // Luego, construyes la nueva línea
+               
                 linea = String.join(";", campos);
                 encontrado = true;
             }
@@ -133,7 +133,7 @@ public void modificarRegistros(String cedula, String nombre, String edad, String
         }
         reader.close();
 
-        // Reescribe el archivo con las modificaciones
+
         BufferedWriter escribir = new BufferedWriter(new FileWriter(archivo));
         for (String l : lineas) {
             escribir.write(l);
@@ -175,7 +175,28 @@ public void modificarRegistros(String cedula, String nombre, String edad, String
         }
         return registros;
     }
+    public boolean validarDatosVeterinario() {
+        boolean nombreValido = validarNombre(this.getNombre());
+        boolean edadValida = validarEdad(this.getEdad());
+        boolean cedulaValida = validarCedula(this.getIdentificacion());
+        boolean nmLicencia = validarCedula(this.noLicencia);
 
+        if (!nombreValido) {
+            JOptionPane.showMessageDialog(null, "Nombre inválido");
+        }
+        if (!edadValida) {
+            JOptionPane.showMessageDialog(null, "Edad inválida");
+        }
+        if (!cedulaValida) {
+            JOptionPane.showMessageDialog(null, "Cédula inválida");
+        }
+        if (!nmLicencia) {
+            JOptionPane.showMessageDialog(null, "Nombre de Licencia inválido");
+        }
+
+        return nombreValido && edadValida && cedulaValida && nmLicencia;
+    }
+    
     // Método para eliminar un elemento de un array
     private String[] removeElement(String[] arr, int index) {
         String[] newArr = new String[arr.length - 1];

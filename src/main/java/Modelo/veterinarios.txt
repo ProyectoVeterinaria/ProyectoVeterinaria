@@ -1,9 +1,7 @@
-Mario Redon;36;100568216;13243;Veterinario;Cirugía Veterinaria;
-Mario Antonio Marin;58;100034987;114374;Veterinario;Cardiología Veterinaria;
-Carlos Fernando Arias;23;3432452;243242;Veterinario;Neurología Veterinaria;
-Gonzalo Florez Vega;42;1224141;324234;Veterinario;Neurología Veterinaria;
-1;1;1;1;Veterinario;Cirugía Veterinaria;
-2;2;2;2;Veterinario;Cirugía Veterinaria;
-3;3;3;3;Veterinario;Cirugía Veterinaria;
-3;3;qqe;3;Veterinario;Cirugía Veterinaria;
-Raúl Felipe Higuita;23;214243;435343;Veterinario;Oncología Veterinaria;
+Mario Redon;36;100568216;13243;Veterinario;Cirugï¿½a Veterinaria;
+Mario Antonio Marin;60;100034987;114374;Veterinario;Cirugía Veterinaria
+Carlos Fernando Arias;23;3432452;243242;Veterinario;Neurologï¿½a Veterinaria;
+Gonzalo Florez Vega;42;1224141;324234;Veterinario;Neurologï¿½a Veterinaria;
+Raul Felipe Higuita;24;214243;435343;Veterinario;Cirugía Veterinaria
+Jorge Armando Torres;32;243523;343422;Veterinario;Cirugía Veterinaria
+Juan Monsalve;23;177878;37678578;Veterinario;Cirugía Veterinaria;

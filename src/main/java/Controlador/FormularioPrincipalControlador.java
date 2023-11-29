@@ -5,10 +5,12 @@
 package Controlador;
 
 import Modelo.Login;
+import Modelo.Mascota;
 import Modelo.Vendedor;
 import Modelo.Veterinario;
 import Vista.FormularioLogin;
 import Vista.FormularioPrincipal;
+import Vista.RegistroMascotaFraame;
 import Vista.RegistroVendedor;
 import Vista.RegistroVeterinario;
 import Vista.VistaAcercade;
@@ -26,6 +28,7 @@ public class FormularioPrincipalControlador implements ActionListener {
     public FormularioPrincipalControlador(FormularioPrincipal vista) {
         this.vista = vista;
         this.vista.getRegistrarveterinario().addActionListener(this);
+                this.vista.getRegistrarMascotas().addActionListener(this);
         this.vista.getRegistrocliente().addActionListener(this);
         this.vista.getCerrarsesion().addActionListener(this);
         this.vista.getIntegrantes().addActionListener(this);
@@ -57,6 +60,17 @@ public class FormularioPrincipalControlador implements ActionListener {
             
            frmvendedor.setVisible(true);
            frmvendedor.setUndecorated(true);
+        }
+        if (e.getSource() == vista.getRegistrarMascotas())
+        {
+            RegistroMascotaFraame frmMascota = new RegistroMascotaFraame(vista, true); 
+            
+            Mascota mascota = new Mascota("", "","","");
+            
+            RegistroMascotaControlador controlador = new RegistroMascotaControlador(frmMascota, mascota);
+            
+           frmMascota.setVisible(true);
+           frmMascota.setUndecorated(true);
         }
         if (e.getSource() == vista.getCerrarsesion())
         {
