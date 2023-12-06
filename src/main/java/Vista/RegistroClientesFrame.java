@@ -62,8 +62,8 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaMostrar = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        itmModificar = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mmsd = new javax.swing.JMenu();
+        itmModificar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itmMostrar = new javax.swing.JMenuItem();
         itmNomostrar = new javax.swing.JCheckBoxMenuItem();
@@ -292,7 +292,7 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
             pnlMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMostrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlMostrarLayout.setVerticalGroup(
@@ -302,13 +302,18 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        itmModificar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeditar.png"));
-        itmModificar.setText("Modficar");
+        mmsd.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconeditar.png"));
+        mmsd.setText("Modficar");
 
-        jMenuItem3.setText("Filtrar y modificar");
-        itmModificar.add(jMenuItem3);
+        itmModificar.setText("Filtrar y modificar");
+        itmModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmModificarActionPerformed(evt);
+            }
+        });
+        mmsd.add(itmModificar);
 
-        jMenuBar1.add(itmModificar);
+        jMenuBar1.add(mmsd);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconmostrar.png"));
         jMenu2.setText("Mostrar");
@@ -359,13 +364,13 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(imgVeterinario)
                         .addGap(46, 46, 46)
                         .addComponent(pnlFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,6 +425,10 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
     private void ItmRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ItmRegistrarActionPerformed
+
+    private void itmModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itmModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,7 +486,7 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel imgVeterinario;
-    private javax.swing.JMenu itmModificar;
+    private javax.swing.JMenuItem itmModificar;
     private javax.swing.JMenuItem itmMostrar;
     private javax.swing.JCheckBoxMenuItem itmNomostrar;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -493,9 +502,9 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JMenu mmsd;
     private javax.swing.JPanel pnlFormulario;
     private javax.swing.JPanel pnlModificar;
     private javax.swing.JPanel pnlMostrar;
@@ -536,7 +545,7 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
 
 
 
-    public JMenu getItmModificar() {
+    public JMenuItem getItmModificar() {
         return itmModificar;
     }
 

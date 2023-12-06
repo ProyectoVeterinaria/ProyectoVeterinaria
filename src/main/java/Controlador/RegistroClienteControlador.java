@@ -25,7 +25,7 @@ public class RegistroClienteControlador implements ActionListener {
 
     private RegistroClientesFrame vista;
     private Cliente cliente;
-    private String cedulaDigitos = "";
+    private String digitosCedula = "";
     private MouseListener tablaMostrarMouseListener;
 
     
@@ -73,8 +73,93 @@ public class RegistroClienteControlador implements ActionListener {
                 }
             }
         }
-        
+        if (e.getSource() == vista.getItmModificar())
+        {
+            vista.getPnlFormulario().setVisible(true);
+            cargarTabla();
+            vista.getPnlMostrar().setVisible(true);
+            vista.getPnlRegistrar().setVisible(false);
+            String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del vendedor que deseas cambiar información", "Modificar", 2);
+            digitosCedula = cedula;
 
+            filtrarRegistros();
+            habilitarMouseListener(true);
+
+        }
+        if (e.getSource() == vista.getBtnModificar())
+        {
+            
+            
+            vista.getPnlRegistrar().setVisible(false);
+            if (validarDatos())
+            {
+
+                cliente = new Cliente(vista.getTelefono(),vista.getCorreo(), vista.getNombre(), vista.getedad(), vista.getCedula());
+                if (cliente.validarDatosCliente())
+                {
+                    cliente.modificarRegistros(vista.getCedula());
+                    limpiarCampos();
+                    cargarTabla();
+                }
+
+            }
+        }
+        if (e.getSource() == vista.getItmMostrar())
+        {
+
+            vista.getPnlFormulario().setVisible(false);
+            vista.getPnlRegistrar().setVisible(false);
+            vista.getPnlMostrar().setVisible(true);
+            cargarTabla();
+            habilitarMouseListener(false);
+        }
+        if (e.getSource() == vista.getItmNomostrar())
+        {
+            vista.getPnlFormulario().setVisible(true);
+            vista.getPnlMostrar().setVisible(false);
+            vista.getPnlModificar().setVisible(false);
+            limpiarCampos();
+        
+        }  
+        
+        if (e.getSource() == vista.getItmRegistrar())
+        {
+            vista.getPnlFormulario().setVisible(true);
+            limpiarCampos();
+            vista.getPnlFormulario().setVisible(true);
+            vista.getPnlRegistrar().setVisible(true);
+            habilitarMouseListener(false);
+
+        }
+
+        if (e.getSource() == vista.getBtnLimpiar())
+        {
+            limpiarCampos();
+        }
+         if (e.getSource() == vista.getItmEliminar())
+        {
+            vista.getPnlFormulario().setVisible(false);
+            vista.getPnlRegistrar().setVisible(false);
+            cliente.eliminarRegistro();
+            cargarTabla();
+            vista.getPnlMostrar().setVisible(true);
+        }
+
+    }
+      private void filtrarRegistros() {
+        DefaultTableModel modelo = (DefaultTableModel) vista.getTablaMostrar().getModel();
+        modelo.setRowCount(0);
+
+        ArrayList<String[]> registros = cliente.leerRegistros();
+        for (String[] registro : registros)
+        {
+            // Verifica si la cédula comienza con los dígitos ingresados por el usuario
+            if (registro[1].startsWith(digitosCedula))
+            {
+                modelo.addRow(registro);
+            }
+
+        }
     }
 
     private void tablaMostrarModificar(java.awt.event.MouseEvent evt) {
@@ -143,6 +228,8 @@ public class RegistroClienteControlador implements ActionListener {
             cargarTabla();
         }
     }
+   
+
     private boolean validarDatos() {
         if (vista.getNombre().isEmpty() || vista.getCedula().isEmpty() || vista.getedad().isEmpty()||vista.getCorreo().isEmpty()||vista.getTelefono().isEmpty() )
         {

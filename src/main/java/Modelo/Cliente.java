@@ -10,25 +10,20 @@ import javax.swing.JOptionPane;
 
 public class Cliente extends Persona {
 
-  
     private ArrayList<Mascota> mascotas;
     private String direccion;
     private String telefono;
     private String email;
     private static final String archivo = "src/main/java/Modelo/clientes.txt";
-     private static final String CODIFICACION = "UTF-8";
-
-    
-
+    private static final String CODIFICACION = "UTF-8";
 
     public Cliente(String telefono, String email, String nombre, String edad, String identificacion) {
         super(nombre, edad, identificacion, "Cliente");
-       
+
         this.mascotas = mascotas;
         this.telefono = telefono;
         this.email = email;
     }
-
 
     public ArrayList<Mascota> getMascotas() {
         return mascotas;
@@ -65,7 +60,7 @@ public class Cliente extends Persona {
     public void agregarCliente() {
         try ( BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true)))
         {
-            String datos = getNombre() + ";" + getEdad() + ";" + getIdentificacion() + ";" + getTelefono() + ";" + getEmail() + ";";
+            String datos = getNombre() + ";" + getIdentificacion()+ ";" + getEdad()+ ";" + getTelefono() + ";" + getEmail() + ";";
             escritor.write(datos);
             escritor.newLine();
             JOptionPane.showMessageDialog(null, "Cliente registrado correctamente", "Cliente registrado", JOptionPane.INFORMATION_MESSAGE);
@@ -76,75 +71,104 @@ public class Cliente extends Persona {
         }
     }
 
-    public void buscarCliente(String numeroCliente) {
-        try ( BufferedReader lector = new BufferedReader(new FileReader(archivo)))
-        {
-            String linea;
-            while ((linea = lector.readLine()) != null)
-            {
-                String[] campos = linea.split(";");
-                if (campos.length > 6 && campos[3].equals(numeroCliente))
-                {
-                    // Muestra la información del cliente
-                    JOptionPane.showMessageDialog(null, "Información del Cliente:\nNombre: " + campos[0] + "\nEdad: " + campos[1] + "\nIdentificación: " + campos[2]
-                            + "\nNúmero de Cliente: " + campos[3] + "\nRol: " + campos[4] + "\nTeléfono: " + campos[5] + "\nEmail: " + campos[6], "Información del Cliente", JOptionPane.INFORMATION_MESSAGE);
-                    return;
-                }
-            }
-            JOptionPane.showMessageDialog(null, "Cliente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void actualizarCliente(String numeroCliente, String nuevoTelefono, String nuevoEmail) {
-        ArrayList<String> lineas = new ArrayList<>();
+  
+    public void modificarRegistros(String cedula) {
         boolean encontrado = false;
 
-        try ( BufferedReader lector = new BufferedReader(new FileReader(archivo)))
+        try
         {
+            ArrayList<String> lineas = new ArrayList<>();
             String linea;
-            while ((linea = lector.readLine()) != null)
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            while ((linea = reader.readLine()) != null)
             {
                 String[] campos = linea.split(";");
-                if (campos.length > 6 && campos[3].equals(numeroCliente))
+                if (campos.length >= 5 && campos[1].equals(cedula))
                 {
-                    campos[5] = nuevoTelefono;
-                    campos[6] = nuevoEmail;
+
+                    campos[0] = this.nombre;
+                    campos[1] = this.identificacion;
+                    campos[2] = this.edad;
+                    campos[3] = this.telefono;
+                    campos[4] = this.email;
+
+                    linea = String.join(";", campos);
                     encontrado = true;
                 }
-                lineas.add(String.join(";", campos));
+                lineas.add(linea);
             }
+            reader.close();
+
+            // Reescribe el archivo con las modificaciones
+            BufferedWriter escribir = new BufferedWriter(new FileWriter(archivo));
+            for (String l : lineas)
+            {
+                escribir.write(l);
+                escribir.newLine();
+            }
+            escribir.close();
+
         } catch (IOException e)
         {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al modificar el registro", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (encontrado)
         {
-            try ( BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo)))
-            {
-                for (String l : lineas)
-                {
-                    escritor.write(l);
-                    escritor.newLine();
-                }
-                JOptionPane.showMessageDialog(null, "Cliente actualizado correctamente", "Cliente actualizado", JOptionPane.INFORMATION_MESSAGE);
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al escribir en el archivo", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            JOptionPane.showMessageDialog(null, "Registro modificado correctamente", "Registro modificado", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
-            JOptionPane.showMessageDialog(null, "Cliente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La cédula ingresada no se encuentra registrada", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
+    public void eliminarRegistro() {
+        boolean encontrado = false;
+        String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del vendedor que deseas eliminar", "Eliminar", 2);
+        try
+        {
+            ArrayList<String> lineas = new ArrayList<>();
+            String linea;
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            while ((linea = reader.readLine()) != null)
+            {
+                String[] campos = linea.split(";");
+                if (campos[1].equals(cedula)) //ignora la linea donde encuentra cc
+                {
+                    encontrado = true;
+                } else
+                {
+                    lineas.add(linea);
+                }
+            }
+            reader.close();
+
+            // Reescribe el archivo sin la linea de cc
+            BufferedWriter escribir = new BufferedWriter(new FileWriter(archivo));
+            for (String l : lineas)
+            {
+                escribir.write(l);
+                escribir.newLine();
+            }
+            escribir.close();
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al eliminar el registro", "Error", 0);
+        }
+
+        if (encontrado)
+        {
+            JOptionPane.showMessageDialog(null, "Registro eliminado correctamente", "Registro eliminado", 3);
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "La cédula ingresad no se encuetra registrada", "Eliminar", 0);
+        }
+    }
+
     public ArrayList<String[]> leerRegistros() {
         ArrayList<String[]> registros = new ArrayList<>();
         try ( BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(archivo), CODIFICACION)))
@@ -165,7 +189,8 @@ public class Cliente extends Persona {
         }
         return registros;
     }
- // Método para eliminar un elemento de un array
+    // Método para eliminar un elemento de un array
+
     private String[] removeElement(String[] arr, int index) {
         String[] newArr = new String[arr.length - 1];
         for (int i = 0, k = 0; i < arr.length; i++)
@@ -179,84 +204,41 @@ public class Cliente extends Persona {
         return newArr;
     }
 
-    public void eliminarCliente(String numeroCliente) {
-        ArrayList<String> lineas = new ArrayList<>();
-        boolean encontrado = false;
-
-        try ( BufferedReader lector = new BufferedReader(new FileReader(archivo)))
-        {
-            String linea;
-            while ((linea = lector.readLine()) != null)
-            {
-                String[] campos = linea.split(";");
-                if (campos.length > 6 && campos[3].equals(numeroCliente))
-                {
-                    encontrado = true;
-                } else
-                {
-                    lineas.add(linea);
-                }
-            }
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (encontrado)
-        {
-            try ( BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo)))
-            {
-                for (String l : lineas)
-                {
-                    escritor.write(l);
-                    escritor.newLine();
-                }
-                JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente", "Cliente eliminado", JOptionPane.INFORMATION_MESSAGE);
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al escribir en el archivo", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } else
-        {
-            JOptionPane.showMessageDialog(null, "Cliente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-      public boolean validarDatosCliente() {
+    public boolean validarDatosCliente() {
         boolean nombreValido = validarNombre(this.getNombre());
         boolean edadValida = validarEdad(this.getEdad());
         boolean cedulaValida = validarCedula(this.getIdentificacion());
         boolean correo = validarCorreo(this.getEmail());
         boolean telefono = validarTelefono(this.getTelefono());
 
-        if (!nombreValido) {
-            JOptionPane.showMessageDialog(null, "Nombre inválido","Ingresa los datos nuevamente",0);
-        }
-        if (!edadValida) {
-            JOptionPane.showMessageDialog(null, "Edad inválida","Ingresa los datos nuevamente",0);
-        }
-        if (!cedulaValida) {
-            JOptionPane.showMessageDialog(null, "Cédula inválida","Ingresa los datos nuevamente",0);
-        }
-        if (!correo) {
-            JOptionPane.showMessageDialog(null, "Correo inválido","Ingresa los datos nuevamente",0);
-        }
-        if(!telefono)
+        if (!nombreValido)
         {
-            JOptionPane.showMessageDialog(null, "Telefono inválido","Ingresa los datos nuevamente",0);
+            JOptionPane.showMessageDialog(null, "Nombre inválido", "Ingresa los datos nuevamente", 0);
+        }
+        if (!edadValida)
+        {
+            JOptionPane.showMessageDialog(null, "Edad inválida", "Ingresa los datos nuevamente", 0);
+        }
+        if (!cedulaValida)
+        {
+            JOptionPane.showMessageDialog(null, "Cédula inválida", "Ingresa los datos nuevamente", 0);
+        }
+        if (!correo)
+        {
+            JOptionPane.showMessageDialog(null, "Correo inválido", "Ingresa los datos nuevamente", 0);
+        }
+        if (!telefono)
+        {
+            JOptionPane.showMessageDialog(null, "Telefono inválido", "Ingresa los datos nuevamente", 0);
         }
 
         return nombreValido && edadValida && cedulaValida && correo;
     }
-    
 
     public boolean validarRepetidos() {
         try
         {
-            FileReader archivo = new FileReader("src/main/java/Modelo/vendedores.txt");
+            FileReader archivo = new FileReader("src/main/java/Modelo/clientes.txt");
             BufferedReader lector = new BufferedReader(archivo);
 
             String linea;
@@ -266,9 +248,9 @@ public class Cliente extends Persona {
                 String[] campos = linea.split(";");
 
                 // 
-                if (campos[0].equals(this.getNombre()) && campos[2].equals(this.getIdentificacion()))
+                if (campos[0].equals(this.getNombre()) && campos[1].equals(this.getIdentificacion()))
                 {
-                    JOptionPane.showMessageDialog(null, "El veterinario ya existe en el sistema", "Validación", 2);
+                    JOptionPane.showMessageDialog(null, "El cliente ya existe en el sistema", "Validación", 2);
                     return false;
                 }
             }
@@ -280,7 +262,5 @@ public class Cliente extends Persona {
         return true;
 
     }
-    
-
 
 }
