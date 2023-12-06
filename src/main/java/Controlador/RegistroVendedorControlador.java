@@ -42,6 +42,9 @@ public class RegistroVendedorControlador implements ActionListener {
         this.vista.getItmRegistrar().addActionListener(this);
         this.vista.getItmModificar().addActionListener(this);
         this.vista.getPnlModificar().setVisible(false);
+        this.vista.getPnlRegistrar().setVisible(true);
+        
+        
 
         //cargarTabla();
         //habilitarMouseListener(false);
@@ -75,7 +78,7 @@ public class RegistroVendedorControlador implements ActionListener {
             vista.getPnlFormulario().setVisible(true);
             cargarTabla();
             vista.getPnlMostrar().setVisible(true);
-             vista.getPnlRegistrar().setVisible(false);
+//             vista.getPnlRegistrar().setVisible(false);
             String cedula = JOptionPane.showInputDialog(null, "Escribe la cedula del vendedor que deseas cambiar información", "Modificar", 2);
             digitosCedula = cedula;
 

@@ -1,5 +1,6 @@
-Juan Carlos Areiza;22;12456142;2322;Vendedor;AsoPets;
-Luis Alberto Ortiz;67;1234325;342342;Vendedor;Bayer Animal Health;
-Tobias Quiroz;34;143423;12434;Vendedor;MSA AS;
+Juan Carlos Areiza;25;12456142;2322;Vendedor;AsoPets
+Luis Alberto Ortiz;99;1234325;342342;Vendedor;Bayer Animal Health
 Jorge Leon Benitez;21;3423231;2423423;Vendedor;Dechra Pharmaceuticals;
 Valentina Goez;19;100084481;352353;Vendedor;Zoetis
+Oscar Zuluaga;32;21812402;3235221;Vendedor;Asopets;
+Maximiliano Duque Estrada;45;123456;345456;Vendedor;Zoomint;

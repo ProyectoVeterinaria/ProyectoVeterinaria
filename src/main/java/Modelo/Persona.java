@@ -91,4 +91,31 @@ public class Persona {
     public boolean validarNombreEmpresa(String nombreEmpresa) {
         return nombreEmpresa.matches("[a-zA-Z\\s]{3,}");
     }
+    public boolean validarCorreo(String correo) {
+        // Expresión regular para validar un correo electrónico
+        String expresionRegular = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}(\\.[A-Za-z]{2,})?$";
+
+        // Compilar la expresión regular en un patrón
+        Pattern pattern = Pattern.compile(expresionRegular);
+        
+        // Comparar el patrón con el correo proporcionado
+        Matcher matcher = pattern.matcher(correo);
+        
+        // Devolver true si el correo coincide con la expresión regular
+        return matcher.matches();
+    }
+    public static boolean validarTelefono(String telefono) {
+        // Expresión regular para validar número de teléfono
+        String expresionRegular = "^[3|6]\\d{9}$";
+
+        // Compilar la expresión regular en un patrón
+        Pattern pattern = Pattern.compile(expresionRegular);
+        
+        // Comparar el patrón con el número de teléfono proporcionado
+        Matcher matcher = pattern.matcher(telefono);
+        
+        // Devolver true si el número de teléfono coincide con la expresión regular
+        return matcher.matches();
+    }
+
 }

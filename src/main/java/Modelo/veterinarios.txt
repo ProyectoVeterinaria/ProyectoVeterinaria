@@ -5,3 +5,5 @@ Gonzalo Florez Vega;42;1224141;324234;Veterinario;Neurologï¿½a Veterinaria;
 Raul Felipe Higuita;24;214243;435343;Veterinario;Cirugía Veterinaria
 Jorge Armando Torres;32;243523;343422;Veterinario;Cirugía Veterinaria
 Juan Monsalve;23;177878;37678578;Veterinario;Cirugía Veterinaria;
+Juan Esteban Durango;45;1000568216;3432453;Veterinario;Cirugía Veterinaria;
+Juan Bautista Giraldo;23;123456;123456;Veterinario;Cirugía Veterinaria;

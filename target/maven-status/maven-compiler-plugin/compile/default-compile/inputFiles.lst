@@ -1,11 +1,13 @@
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroHistoriaClinica.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Veterinario.java
+E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroClientesFrame.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Mascota.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Cliente.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\ControladorLogin.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\FormularioPrincipalControlador.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroHistoriaClinicaFrame.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroVeterinario.java
+E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroMascotaControlador.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroVeterinarioContolador.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\VistaAcercade.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroFacturaFrame.java
@@ -16,12 +18,10 @@ E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER 
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroVendedorControlador.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\Principal.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\FormularioPrincipal.java
-E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroMascota.java
+E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroClienteControlador.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroMascotaFraame.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Vendedor.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\FormularioLogin.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\ConsultarHistoriaClinicaFrame.java
-E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Vista\RegistroDueñoMascotaFrame.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Factura.java
 E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Modelo\Persona.java
-E:\USUARIO\Escritorio\Mariana Montoya\INGENIERÍA INFORMÁTICA\SEMESTRE IV\TALLER DE PROGRAMACIÓN\ProyectoVeterinaria\src\main\java\Controlador\RegistroDueñoMascota.java

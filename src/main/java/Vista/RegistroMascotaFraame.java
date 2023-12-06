@@ -119,7 +119,7 @@ public class RegistroMascotaFraame extends javax.swing.JDialog {
             }
         });
 
-        Raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Labrador Retriever", "Pastor Alemán", "Bulldog Francés", "Golden Retriever", "Beagle", "Poodle (Caniche)", "Boxer", "Dachshund (Teckel o Salchicha)", "Yorkshire Terrier", "Rottweiler", "Gato Persa", "Gato Siamés", "Gato Maine Coon", "Gato Bengalí", "Gato Ragdoll", "Gato Exótico de Pelo Corto", "Gato Azul Ruso", "Gato Sphynx", "Gato Birmano", "Gato Abisinio" }));
+        Raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Labrador Retriever", "Mestizo", "Pastor Alemán", "Bulldog Francés", "Golden Retriever", "Beagle", "Poodle (Caniche)", "Boxer", "Dachshund (Teckel o Salchicha)", "Yorkshire Terrier", "Rottweiler", "Gato Persa", "Gato Siamés", "Gato Maine Coon", "Gato Bengalí", "Gato Ragdoll", "Gato Exótico de Pelo Corto", "Gato Azul Ruso", "Gato Sphynx", "Gato Birmano", "Gato Abisinio", "Otro" }));
 
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));

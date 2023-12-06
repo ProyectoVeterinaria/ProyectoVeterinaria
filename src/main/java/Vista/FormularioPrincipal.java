@@ -4,8 +4,12 @@
  */
 package Vista;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,8 +22,11 @@ public class FormularioPrincipal extends javax.swing.JFrame {
      */
     public FormularioPrincipal() {
         initComponents();
-        this.setExtendedState(this.MAXIMIZED_BOTH); // PANTALLA COMPLETA
+         this.setExtendedState(this.MAXIMIZED_BOTH); // PANTALLA COMPLETA
         this.setDefaultCloseOperation(FormularioPrincipal.DO_NOTHING_ON_CLOSE);
+      
+        
+        
     }
 
     /**
@@ -36,11 +43,10 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jOptionPane1 = new javax.swing.JOptionPane();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        Jlimg = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         mnu_cliente = new javax.swing.JMenu();
         registrocliente = new javax.swing.JMenuItem();
-        editarcliente = new javax.swing.JMenuItem();
         mnu_mascota = new javax.swing.JMenu();
         ItmRegistrarMascotas = new javax.swing.JMenuItem();
         mnu_vetrinario = new javax.swing.JMenu();
@@ -68,13 +74,14 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formulario Principal");
+        setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\Bienvenidos.jpg"));
+        Jlimg.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\Bienvenidos.jpg"));
 
         mnu_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         mnu_cliente.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconcliente.png"));
@@ -87,14 +94,6 @@ public class FormularioPrincipal extends javax.swing.JFrame {
             }
         });
         mnu_cliente.add(registrocliente);
-
-        editarcliente.setText("Editar");
-        editarcliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarclienteActionPerformed(evt);
-            }
-        });
-        mnu_cliente.add(editarcliente);
 
         barraMenu.add(mnu_cliente);
 
@@ -173,18 +172,18 @@ public class FormularioPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(500, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(Jlimg)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Jlimg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,10 +192,6 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private void registroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registroclienteActionPerformed
-
-    private void editarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarclienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editarclienteActionPerformed
 
     private void registrarveterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarveterinarioActionPerformed
         // TODO add your handling code here:
@@ -259,14 +254,13 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ItmRegistrarMascotas;
     private javax.swing.JMenuItem ItmRegistroVendedor;
+    private javax.swing.JLabel Jlimg;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem cerrarsesion;
-    private javax.swing.JMenuItem editarcliente;
     private javax.swing.JMenuItem integrantes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JMenu mnu_acercade;
@@ -282,11 +276,9 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem salir;
     // End of variables declaration//GEN-END:variables
 
+
     
-    
-    public JMenuItem getEditarcliente() {
-        return editarcliente;
-    }
+
 
     public JMenuItem getItmRegistroVendedor() {
         return ItmRegistroVendedor;
@@ -296,9 +288,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         return mnu_historiaclinica;
     }
 
-    public void setEditarcliente(JMenuItem editarcliente) {
-        this.editarcliente = editarcliente;
-    }
+ 
 
     public JMenu getMnu_acercade() {
         return mnu_acercade;

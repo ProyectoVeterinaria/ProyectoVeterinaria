@@ -60,7 +60,7 @@ public class FormularioLogin extends javax.swing.JFrame {
         lbtipousuario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lbtipousuario.setText("Tipo de usuario");
 
-        cbxtipousuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Veterinario" }));
+        cbxtipousuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Veterinario", "Vendedor" }));
         cbxtipousuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxtipousuarioActionPerformed(evt);

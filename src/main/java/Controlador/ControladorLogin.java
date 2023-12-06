@@ -36,18 +36,57 @@ public class ControladorLogin implements ActionListener {
             if (validarDatos())
             {
                 modelo = new Login(vista.getNombreUsuario(), vista.getContraseña(), vista.getTipousuario());
-                if (modelo.validarIngreso())
+                if ("Administrador".equals(vista.getTipousuario()))
                 {
-                    JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
-                    vista.setVisible(false);
-                    
-                    FormularioPrincipal principal = new FormularioPrincipal();
-                    FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal);
-                    principal.setVisible(true);
+                    if (modelo.validarIngresoAdmin())
+                    {
+                        JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                        vista.setVisible(false);
+
+                        FormularioPrincipal principal = new FormularioPrincipal();
+                        FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal,0);
+                        principal.setVisible(true);
+                    } else
+                    {
+                        JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
+                    }
 
                 } else
                 {
-                    JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
+                    if ("Veterinario".equals(vista.getTipousuario()))
+                    {
+                        if (modelo.validarIngresoVeterinario())
+                        {
+                            JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                            vista.setVisible(false);
+
+                            FormularioPrincipal principal = new FormularioPrincipal();
+                            FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal,1);
+                            principal.setVisible(true);
+                        } else
+                        {
+                            JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
+                        }
+                    } else
+                    {
+                        if ("Vendedor".equals(vista.getTipousuario()))
+                        {
+                            if (modelo.validarIngresoVendedor())
+                            {
+                                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                                vista.setVisible(false);
+
+                                FormularioPrincipal principal = new FormularioPrincipal();
+                                FormularioPrincipalControlador formprincipal = new FormularioPrincipalControlador(principal,2);
+                                principal.setVisible(true);
+                            } else
+                            {
+                                JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
+                            }
+                        }
+
+                    }
+
                 }
 
             }
