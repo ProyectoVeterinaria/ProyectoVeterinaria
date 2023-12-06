@@ -1,1 +1,2 @@
 Lulu;2;Mestizo;Jonh Andres Andes;
+Juan;2;Labrador Retriever;Sandra Henao Gutierrez;

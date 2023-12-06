@@ -53,6 +53,7 @@ public class FormularioPrincipalControlador implements ActionListener {
                 this.vista.getSalir().addActionListener(this);
                 this.vista.getMnu_vendedor().setVisible(false);
                 this.vista.getMnu_vetrinario().setVisible(false);
+                this.vista.getMnu_factura().setVisible(false);
 
             }
             case 2 ->
@@ -65,6 +66,7 @@ public class FormularioPrincipalControlador implements ActionListener {
                 this.vista.getMnu_vetrinario().setVisible(false);
                 this.vista.getMnu_mascota().setVisible(false);
                 this.vista.getMnu_cliente().setVisible(false);
+                this.vista.getMnu_historiaclinica().setVisible(false);
 
             }
         }
