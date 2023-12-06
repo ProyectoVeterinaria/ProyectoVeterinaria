@@ -71,6 +71,8 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
         ItmEliminar = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         ItmRegistrar = new javax.swing.JMenuItem();
+        ueiw = new javax.swing.JMenu();
+        mostrarMascotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         ItmSalir = new javax.swing.JMenuItem();
 
@@ -348,6 +350,19 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
 
         jMenuBar1.add(jMenu5);
 
+        ueiw.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconcancelar.png"));
+        ueiw.setText("Mostrar Mascotas");
+
+        mostrarMascotas.setText("Mostrar");
+        mostrarMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarMascotasActionPerformed(evt);
+            }
+        });
+        ueiw.add(mostrarMascotas);
+
+        jMenuBar1.add(ueiw);
+
         jMenu4.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Vista\\images\\iconcancelar.png"));
         jMenu4.setText("Salir");
 
@@ -430,6 +445,10 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_itmModificarActionPerformed
 
+    private void mostrarMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarMascotasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrarMascotasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -505,6 +524,7 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenu mmsd;
+    private javax.swing.JMenuItem mostrarMascotas;
     private javax.swing.JPanel pnlFormulario;
     private javax.swing.JPanel pnlModificar;
     private javax.swing.JPanel pnlMostrar;
@@ -515,6 +535,7 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtedad;
+    private javax.swing.JMenu ueiw;
     // End of variables declaration//GEN-END:variables
     
     //getters y setters para usarlos en controlador
@@ -629,6 +650,10 @@ public class RegistroClientesFrame extends javax.swing.JDialog {
 
     public String getTelefono() {
         return txtTelefono.getText();
+    }
+
+    public JMenuItem getMostrarMascotas() {
+        return mostrarMascotas;
     }
 
    

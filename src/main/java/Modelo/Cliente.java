@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class Cliente extends Persona {
 
-    private ArrayList<Mascota> mascotas;
+    private ArrayList<String> mascotas;
     private String direccion;
     private String telefono;
     private String email;
@@ -25,11 +25,11 @@ public class Cliente extends Persona {
         this.email = email;
     }
 
-    public ArrayList<Mascota> getMascotas() {
+    public ArrayList<String> getMascotas() {
         return mascotas;
     }
 
-    public void setMascotas(ArrayList<Mascota> mascotas) {
+    public void setMascotas(ArrayList<String> mascotas) {
         this.mascotas = mascotas;
     }
 
@@ -234,7 +234,19 @@ public class Cliente extends Persona {
 
         return nombreValido && edadValida && cedulaValida && correo;
     }
+public void mostrarMascotasEnOptionPane() {
+    if (mascotas != null && !mascotas.isEmpty()) {
+        StringBuilder mensaje = new StringBuilder("Lista de mascotas:\n");
 
+        for (String mascota : mascotas) {
+            mensaje.append(mascota).append("\n");
+        }
+
+        JOptionPane.showMessageDialog(null, mensaje.toString(), "Mascotas", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(null, "No hay mascotas registradas.", "Mascotas", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
     public boolean validarRepetidos() {
         try
         {
@@ -262,5 +274,23 @@ public class Cliente extends Persona {
         return true;
 
     }
+ public void agregarMascotasDesdeArchivo(String nombre) {
+    if (mascotas == null) {
+        mascotas = new ArrayList<>(); // Inicializar la lista si es nula
+    }
+
+    try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/Modelo/clientes.txt"))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] campos = line.split(";");
+
+            if (campos.length >= 4 && nombre.equals(campos[3])) {
+                mascotas.add(campos[0]);
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 
 }

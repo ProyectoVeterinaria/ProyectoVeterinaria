@@ -43,6 +43,7 @@ public class RegistroClienteControlador implements ActionListener {
         this.vista.getItmModificar().addActionListener(this);
         vista.getPnlMostrar().setVisible(false);
         this.vista.getPnlModificar().setVisible(false);
+         this.vista.getMostrarMascotas().addActionListener(this);
 
         cargarTabla();
         habilitarMouseListener(false);
@@ -121,7 +122,10 @@ public class RegistroClienteControlador implements ActionListener {
             limpiarCampos();
         
         }  
-        
+         if (e.getSource() == vista.getMostrarMascotas())
+        {
+            cliente.mostrarMascotasEnOptionPane();
+        }
         if (e.getSource() == vista.getItmRegistrar())
         {
             vista.getPnlFormulario().setVisible(true);
