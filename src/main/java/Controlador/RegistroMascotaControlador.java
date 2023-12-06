@@ -9,10 +9,15 @@ import Modelo.Vendedor;
 import Vista.RegistroMascotaFraame;
 import Vista.RegistroVendedor;
 import java.awt.Component;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -238,7 +243,6 @@ public class RegistroMascotaControlador implements ActionListener {
             }
         }
     }
-
     private void limpiarCampos() {
         vista.setNombre("");
         vista.setEdad("");

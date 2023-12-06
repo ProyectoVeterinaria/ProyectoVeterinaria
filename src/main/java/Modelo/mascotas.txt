@@ -4,3 +4,4 @@ Toby;1;Pastor Alem�n;Julian Gonzalez;
 Jimmy;1;Gato Birmano;Maria Alvarez
 Martha;5;Gato Abisinio;Marta Alzate
 Jimmy;3;Boxer;Juan Gonzalez;
+Lulu;2;Mestizo;Jonh Andres Andes;
